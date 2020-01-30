@@ -58,10 +58,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
+  - {fileID: 2100000, guid: f35dad362a14f4e7bac6698b5c5d545b, type: 2}
   - {fileID: -6478536213147159724, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
   - {fileID: -3846018093981099296, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
   - {fileID: 4874126678125670354, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
@@ -131,27 +132,9 @@ MonoBehaviour:
   left: 97
   right: 100
   back: 115
-  camera: {fileID: 0}
   cameraMovement: {fileID: 0}
-  inPort: 0
   isAnchored: 0
   springJoint: {fileID: 0}
-  anchor: {fileID: 3257602105238593650}
-  IslandList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!54 &6779253124693926531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -212,16 +195,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1976528290748658801}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 85295b30ac9ca412e879b649fb353b74,
-        type: 3}
-      propertyPath: m_Name
-      value: Anchor
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 85295b30ac9ca412e879b649fb353b74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85295b30ac9ca412e879b649fb353b74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -291,6 +264,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.08289002
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85295b30ac9ca412e879b649fb353b74,
+        type: 3}
+      propertyPath: m_Name
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85295b30ac9ca412e879b649fb353b74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85295b30ac9ca412e879b649fb353b74, type: 3}

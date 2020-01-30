@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -496,8 +497,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
@@ -566,11 +565,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 9b244c23149a248569aa31fcf60a158e,
-        type: 3}
-      propertyPath: m_Name
-      value: Demon
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9b244c23149a248569aa31fcf60a158e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -641,6 +635,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 7097.825
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9b244c23149a248569aa31fcf60a158e,
+        type: 3}
+      propertyPath: m_Name
+      value: Demon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b244c23149a248569aa31fcf60a158e, type: 3}
 --- !u!1001 &357245820
@@ -650,11 +649,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: e174b2c0439ce42d09f040f543ac8374,
-        type: 3}
-      propertyPath: m_Name
-      value: Knight (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e174b2c0439ce42d09f040f543ac8374,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -724,6 +718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5151.602
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e174b2c0439ce42d09f040f543ac8374,
+        type: 3}
+      propertyPath: m_Name
+      value: Knight (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e174b2c0439ce42d09f040f543ac8374, type: 3}
@@ -867,6 +866,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -983,11 +983,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 9b244c23149a248569aa31fcf60a158e,
-        type: 3}
-      propertyPath: m_Name
-      value: Demon (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9b244c23149a248569aa31fcf60a158e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1058,6 +1053,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 7097.825
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9b244c23149a248569aa31fcf60a158e,
+        type: 3}
+      propertyPath: m_Name
+      value: Demon (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b244c23149a248569aa31fcf60a158e, type: 3}
 --- !u!1 &1227734765
@@ -1127,11 +1127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: e174b2c0439ce42d09f040f543ac8374,
-        type: 3}
-      propertyPath: m_Name
-      value: Knight
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e174b2c0439ce42d09f040f543ac8374,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1201,6 +1196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5151.602
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e174b2c0439ce42d09f040f543ac8374,
+        type: 3}
+      propertyPath: m_Name
+      value: Knight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e174b2c0439ce42d09f040f543ac8374, type: 3}
@@ -1424,6 +1424,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1558,6 +1559,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1749,8 +1751,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Space to restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f66708ef89c4a436f983f3a3bd75d6bd, type: 2}
@@ -1956,8 +1956,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790155076}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -2121,11 +2122,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3257602104679958114, guid: ff835bd8b886e41eca43371d889a3c97,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 1976528290748658801, guid: ff835bd8b886e41eca43371d889a3c97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2180,6 +2176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3257602104679958114, guid: ff835bd8b886e41eca43371d889a3c97,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6779253124685160961, guid: ff835bd8b886e41eca43371d889a3c97,
         type: 3}

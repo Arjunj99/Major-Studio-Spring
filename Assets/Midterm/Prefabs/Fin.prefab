@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08a7339172dd4bb1b6517deb1e5f57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombObject: {fileID: 0}
 --- !u!1 &4943215366568968328
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,10 +162,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 8b5ee9055444b46fe8c7490f14ab4764, type: 3}
+  - {fileID: -6478536213147159724, guid: f498c781150af4843a4ee89f8644972b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
