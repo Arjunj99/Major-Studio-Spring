@@ -3,65 +3,175 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoatController : MonoBehaviour {
+    public enum PlayTestModes {playTestMode1, playTestMode2, playTestMode3};
+    public PlayTestModes playTestMode;
 
-    public KeyCode forward; public KeyCode left; public KeyCode right; public KeyCode back;
+    public KeyCode forward = KeyCode.W; public KeyCode left = KeyCode.A; public KeyCode right = KeyCode.D; public KeyCode back = KeyCode.S;
     public CameraMovement cameraMovement;
     public Boat boat;
-    public bool isAnchored = false;
-    public SpringJoint springJoint;
+    // public bool isAnchored = false;
+    // public SpringJoint springJoint;
+    public CharacterController characterController;
+
+    public float drag = 0.1f;
+    public float maxSpeed = 10f;
+    public float acceleration = 0.2f;
+    public CameraMovement2 cameraMovement2;
+    public GameObject cam;
+
+
+
 
     void Awake() { // Names Boat
         boat = new Boat("SS Imperial");
     }
 
     void Start() { // Gets the Spring Component of Anchor
-        springJoint = gameObject.GetComponentInChildren<SpringJoint>();
+        // springJoint = gameObject.GetComponentInChildren<SpringJoint>();
+        characterController = gameObject.GetComponent<CharacterController>();
+
+        if (playTestMode == PlayTestModes.playTestMode1) {
+            cam.GetComponent<CameraMovement2>().enabled = false;
+        } else if (playTestMode == PlayTestModes.playTestMode2) {
+            cam.GetComponent<CameraMovement>().enabled = false;
+        } else if (playTestMode == PlayTestModes.playTestMode3) {
+            cam.GetComponent<CameraMovement>().enabled = false;
+        }
     }
 
-    void Update() { // Always moves forward at current Speed
-        this.transform.Translate(new Vector3(0, 0, boat.GetCurrentSpeed() * Time.deltaTime));
 
-        if (boat.GetCurrentSpeed() > 0f) { // Deacceleration Values
-            boat.SetCurrentSpeed(boat.GetCurrentSpeed() - 0.1f);
+    public Vector3 getMoveVector() {
+        return this.gameObject.transform.forward * boat.GetCurrentSpeed() * Time.deltaTime;
+    }
+
+    public void ApplyDrag() {
+        if (boat.GetCurrentSpeed() > 0f) { // If Player is in Motion, apply Drag
+            boat.SetCurrentSpeed(boat.GetCurrentSpeed() - drag);
         }
+    }
 
-        // Allows ship to go forward if requirements are met
-        if (Input.GetKey(forward) && boat.GetCurrentSpeed() < 10f && !cameraMovement.isScouting && !isAnchored) {
-            boat.SetCurrentSpeed(boat.GetCurrentSpeed() + 0.2f);
+    public void RegulateForwardMovement() {
+        if (isForward() && boat.GetCurrentSpeed() < maxSpeed && !cameraMovement.isScouting) {
+            boat.SetCurrentSpeed(boat.GetCurrentSpeed() + acceleration);
+            boat.SetInMotion(true);
+        } else if (isBack() && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting) {
+            boat.SetCurrentSpeed(boat.GetCurrentSpeed() - acceleration);
             boat.SetInMotion(true);
         } else {
             boat.SetInMotion(false);
         }
+    }
 
-        // Rotation Speed is proportional to speed
+    public void SetRotationSpeed() {
         boat.SetCurrentRotation(boat.GetCurrentSpeed() * -2f);
+    }
 
-        // How the boat turns, wether it is unanchored or anchored
-        if (Input.GetKey(left) && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting && !isAnchored) {
+    public void RegulateRotation() {
+        if (isleft() && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting) {
             this.transform.Rotate(new Vector3(0, boat.GetCurrentRotation() * Time.deltaTime, 0));
-        } else if(Input.GetKey(left) && !cameraMovement.isScouting && isAnchored) {
+        } else if(isleft() && !cameraMovement.isScouting) {
             this.transform.Rotate(new Vector3(0, -20f * Time.deltaTime, 0));
-        }
-        if (Input.GetKey(right) && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting && !isAnchored) {
+        } if (isRight() && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting) {
             this.transform.Rotate(new Vector3(0, boat.GetCurrentRotation() * -Time.deltaTime, 0));
-        } else if (Input.GetKey(right) && !cameraMovement.isScouting && isAnchored) {
+        } else if (isRight() && !cameraMovement.isScouting ) {
             this.transform.Rotate(new Vector3(0, -20f * -Time.deltaTime, 0));
         }
+    }
 
+    public void HandleAnchor() {
         // If its anchored, deaccelerate fast and lenghten the connecting spring joint 
-        if (isAnchored) {
-            boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), 0f, 2f * Time.deltaTime));
-            springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,0,0), Time.deltaTime * 2f);
-        } else {
-            springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,-10f,0), Time.deltaTime * 2f);
+        // if (isAnchored) {
+        //     boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), 0f, 2f * Time.deltaTime));
+        //     springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,0,0), Time.deltaTime * 2f);
+        // } else {
+        //     springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,-10f,0), Time.deltaTime * 2f);
+        // }
+
+        // // Anchors the boat if E is pressed
+        // if (Input.GetKeyDown(KeyCode.E) && !isAnchored) {
+        //     isAnchored = true;
+        // } else if (Input.GetKeyDown(KeyCode.E) && isAnchored) {
+        //     isAnchored = false;
+        // }
+    }
+
+    // public void SetRotation() {
+    //     gameObject.transform.rotation = 
+    // }
+
+    void Update() { // Always moves forward at current Speed
+        if (playTestMode == PlayTestModes.playTestMode1) {
+            characterController.Move(getMoveVector());
+            ApplyDrag();
+            RegulateForwardMovement();
+            SetRotationSpeed();
+            RegulateRotation();
+        } else if (playTestMode == PlayTestModes.playTestMode2) {
+            characterController.Move(getMoveVector());
+            ApplyDrag();
+            RegulateForwardMovement();
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, cameraMovement2.cameraRotation.y + 55.14f, transform.rotation.eulerAngles.z));
+        } else if (playTestMode == PlayTestModes.playTestMode3) {
+            characterController.Move(getMoveVector());
+            ApplyDrag();
+            RegulateForwardMovement();
+            SetRotationSpeed();
+            RegulateRotation();
         }
 
-        // Anchors the boat if E is pressed
-        if (Input.GetKeyDown(KeyCode.E) && !isAnchored) {
-            isAnchored = true;
-        } else if (Input.GetKeyDown(KeyCode.E) && isAnchored) {
-            isAnchored = false;
-        }
+
+        
+
+        // HandleAnchor();
+
+        // i
+
+
+
+
+        // this.transform.Translate(new Vector3(0, 0, boat.GetCurrentSpeed() * Time.deltaTime));
+
+        // if (boat.GetCurrentSpeed() > 0f) { // Deacceleration Values
+        //     boat.SetCurrentSpeed(boat.GetCurrentSpeed() - 0.1f);
+        // }
+
+        // // Allows ship to go forward if requirements are met
+        // if (isForward() && boat.GetCurrentSpeed() < 10f && !cameraMovement.isScouting && !isAnchored) {
+        //     boat.SetCurrentSpeed(boat.GetCurrentSpeed() + 0.2f);
+        //     boat.SetInMotion(true);
+        // } else {
+        //     boat.SetInMotion(false);
+        // }
+
+        // // Rotation Speed is proportional to speed
+        // boat.SetCurrentRotation(boat.GetCurrentSpeed() * -2f);
+
+        // // How the boat turns, wether it is unanchored or anchored
+        // if (Input.GetKey(left) && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting && !isAnchored) {
+        //     this.transform.Rotate(new Vector3(0, boat.GetCurrentRotation() * Time.deltaTime, 0));
+        // } else if(Input.GetKey(left) && !cameraMovement.isScouting && isAnchored) {
+        //     this.transform.Rotate(new Vector3(0, -20f * Time.deltaTime, 0));
+        // }
+        // if (Input.GetKey(right) && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting && !isAnchored) {
+        //     this.transform.Rotate(new Vector3(0, boat.GetCurrentRotation() * -Time.deltaTime, 0));
+        // } else if (Input.GetKey(right) && !cameraMovement.isScouting && isAnchored) {
+        //     this.transform.Rotate(new Vector3(0, -20f * -Time.deltaTime, 0));
+        // }
+
+        // // If its anchored, deaccelerate fast and lenghten the connecting spring joint 
+        // if (isAnchored) {
+        //     boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), 0f, 2f * Time.deltaTime));
+        //     springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,0,0), Time.deltaTime * 2f);
+        // } else {
+        //     springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,-10f,0), Time.deltaTime * 2f);
+        // }
+
+        // // Anchors the boat if E is pressed
+        // if (Input.GetKeyDown(KeyCode.E) && !isAnchored) {
+        //     isAnchored = true;
+        // } else if (Input.GetKeyDown(KeyCode.E) && isAnchored) {
+        //     isAnchored = false;
+        // }
     }
 
     // Timer Function (Unused)
@@ -78,7 +188,117 @@ public class BoatController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    public bool isForward() {
+        if (Input.GetKey(forward) || (Input.GetAxis("Vertical") > 0f)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public bool isRight() {
+        if (Input.GetKey(right) || (Input.GetAxis("Horizontal") > 0f)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public bool isleft() {
+        if (Input.GetKey(left) || (Input.GetAxis("Horizontal") < 0f)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public bool isBack() {
+        if (Input.GetKey(back) || (Input.GetAxis("Vertical") < 0f)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+
+
+
+//     public KeyCode forward; public KeyCode left; public KeyCode right; public KeyCode back;
+//     public CameraMovement cameraMovement;
+//     public Boat boat;
+//     public bool isAnchored = false;
+//     public SpringJoint springJoint;
+
+//     void Awake() { // Names Boat
+//         boat = new Boat("SS Imperial");
+//     }
+
+//     void Start() { // Gets the Spring Component of Anchor
+//         springJoint = gameObject.GetComponentInChildren<SpringJoint>();
+//     }
+
+//     void Update() { // Always moves forward at current Speed
+//         this.transform.Translate(new Vector3(0, 0, boat.GetCurrentSpeed() * Time.deltaTime));
+
+//         if (boat.GetCurrentSpeed() > 0f) { // Deacceleration Values
+//             boat.SetCurrentSpeed(boat.GetCurrentSpeed() - 0.1f);
+//         }
+
+//         // Allows ship to go forward if requirements are met
+//         if (Input.GetKey(forward) && boat.GetCurrentSpeed() < 10f && !cameraMovement.isScouting && !isAnchored) {
+//             boat.SetCurrentSpeed(boat.GetCurrentSpeed() + 0.2f);
+//             boat.SetInMotion(true);
+//         } else {
+//             boat.SetInMotion(false);
+//         }
+
+//         // Rotation Speed is proportional to speed
+//         boat.SetCurrentRotation(boat.GetCurrentSpeed() * -2f);
+
+//         // How the boat turns, wether it is unanchored or anchored
+//         if (Input.GetKey(left) && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting && !isAnchored) {
+//             this.transform.Rotate(new Vector3(0, boat.GetCurrentRotation() * Time.deltaTime, 0));
+//         } else if(Input.GetKey(left) && !cameraMovement.isScouting && isAnchored) {
+//             this.transform.Rotate(new Vector3(0, -20f * Time.deltaTime, 0));
+//         }
+//         if (Input.GetKey(right) && boat.GetCurrentSpeed() > 0f && !cameraMovement.isScouting && !isAnchored) {
+//             this.transform.Rotate(new Vector3(0, boat.GetCurrentRotation() * -Time.deltaTime, 0));
+//         } else if (Input.GetKey(right) && !cameraMovement.isScouting && isAnchored) {
+//             this.transform.Rotate(new Vector3(0, -20f * -Time.deltaTime, 0));
+//         }
+
+//         // If its anchored, deaccelerate fast and lenghten the connecting spring joint 
+//         if (isAnchored) {
+//             boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), 0f, 2f * Time.deltaTime));
+//             springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,0,0), Time.deltaTime * 2f);
+//         } else {
+//             springJoint.anchor = Vector3.Lerp(springJoint.anchor, new Vector3(0,-10f,0), Time.deltaTime * 2f);
+//         }
+
+//         // Anchors the boat if E is pressed
+//         if (Input.GetKeyDown(KeyCode.E) && !isAnchored) {
+//             isAnchored = true;
+//         } else if (Input.GetKeyDown(KeyCode.E) && isAnchored) {
+//             isAnchored = false;
+//         }
+//     }
+
+//     // Timer Function (Unused)
+//     void waitTimer(float time) {
+//         float timer = 0;
+//         while (timer < time) {
+//             timer += Time.deltaTime;
+//         }
+//     }
+
+//     // Dies if it collides with a bomb (unused)
+//     void OnCollisionEnter(Collision collision) {
+//         if (collision.gameObject.tag == "Bomb") {
+//             Destroy(gameObject);
+//         }
+//     }
+// }
 
 
 
