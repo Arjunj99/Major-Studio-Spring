@@ -104,7 +104,11 @@ public class BoatMovement : MonoBehaviour {
     /// How many units in local space should the player move during on frame.
     /// </param>
     private void MoveBoat(float speed, float rotation) {
-        Vector3 moveVector = camObject.transform.forward * speed * Time.deltaTime;
+        Vector3 moveVector;
+        // if (cam.inMotion) { moveVector = camObject.transform.forward * speed * Time.deltaTime; }
+        // else { 
+            moveVector = gameObject.transform.forward * speed * Time.deltaTime; 
+            // }
         Vector3 rotationQuaternion = new Vector3(this.gameObject.transform.eulerAngles.x, rotation, this.gameObject.transform.eulerAngles.z);
         applyGravity(moveVector);
         characterController.Move(moveVector); // Move Player using Character Controller
@@ -151,9 +155,20 @@ public class BoatMovement : MonoBehaviour {
     /// Transition Speed between player rotation and camera rotation.
     /// </param> 
     private void UpdateRotation(float transitionSpeed, float rotationSpeed) {
-        if (boat.GetInMotion()) {
-            boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
+        if (Input.GetKey(right)) {
+            boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 20));
+        } else if (Input.GetKey(left)) {
+            boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 20));
         }
+
+
+
+
+
+
+        // if (boat.GetInMotion()) {
+        //     boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
+        // }
 
         // if (boat.GetInMotion() && !cam.inMotion) {
         //     if (isleft() && boat.GetCurrentSpeed() > 0f) {

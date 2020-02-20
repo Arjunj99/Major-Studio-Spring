@@ -72,6 +72,9 @@ public class CameraController : MonoBehaviour {
 
     private void mouseInput() {
         if (GUIUtility.hotControl == 0) {
+            float tempxDeg = xDeg;
+            float tempyDeg = yDeg;
+
             if (!controller) {
                 xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f;
                 yDeg -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
@@ -80,11 +83,13 @@ public class CameraController : MonoBehaviour {
                 yDeg -= Input.GetAxis ("RightJoystickY") * ySpeed * 0.002f;
             }
 
-            if (xDeg == 0 && yDeg == 0) {
+            if (xDeg - tempxDeg == 0 && yDeg - tempyDeg == 0) {
                 inMotion = false;
             } else {
                 inMotion = true;
             }
+
+            // Debug.Log(inMotion + " IN MOTION");
             
         } else if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0) { // NOTE TO ARJUN: USE VERTICAL AND HORIZONTAL AXIS NOW
             float targetRotationAngle = player.eulerAngles.y;
