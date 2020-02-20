@@ -370,7 +370,7 @@ PrefabInstance:
     - target: {fileID: 6805482407677054958, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
       propertyPath: deacceleration
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6805482407677054958, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
@@ -380,7 +380,7 @@ PrefabInstance:
     - target: {fileID: 6805482407677054958, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
       propertyPath: acceleration
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6805482407677054958, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
