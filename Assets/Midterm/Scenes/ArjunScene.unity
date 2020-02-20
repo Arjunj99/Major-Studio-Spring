@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 425360558}
   - component: {fileID: 425360557}
   - component: {fileID: 425360556}
+  - component: {fileID: 425360560}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -498,7 +499,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   cameraRotation: {x: 0, y: 0, z: 0}
   inMotion: 0
-  controller: 1
+  controller: 0
 --- !u!114 &425360557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +588,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &425360560
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425360555}
+  m_Enabled: 1
 --- !u!1001 &794202547
 PrefabInstance:
   m_ObjectHideFlags: 0
