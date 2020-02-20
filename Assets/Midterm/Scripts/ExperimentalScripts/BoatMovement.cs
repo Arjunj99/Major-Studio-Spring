@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BoatMovement : MonoBehaviour {
     public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S;
+    public enum playTestMode {playTestMode1, playTestMode2, playTestMode3};
+    public playTestMode playTest;
     public CharacterController characterController;
     [HideInInspector] public Boat boat;
     [HideInInspector] public CameraController cam;
@@ -80,6 +82,10 @@ public class BoatMovement : MonoBehaviour {
         ApplyDragToBoat(deacceleration);
         UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
         UpdateRotation(rotationLerpSpeed, 5f);
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { playTest = playTestMode.playTestMode1; }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) { playTest = playTestMode.playTestMode2; }
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) { playTest = playTestMode.playTestMode3; }
     }
 
     /// <summary>
@@ -105,8 +111,22 @@ public class BoatMovement : MonoBehaviour {
     /// </param>
     private void MoveBoat(float speed, float rotation) {
         Vector3 moveVector;
-        if (cam.inMotion) { moveVector = camObject.transform.forward * speed * Time.deltaTime; }
-        else { moveVector = gameObject.transform.forward * speed * Time.deltaTime; }
+        Vector3 orientationVector = Vector3.Normalize(new Vector3(camObject.transform.forward.x, 0, camObject.transform.forward.z));
+        if (playTest == playTestMode.playTestMode1) {
+            
+            if (cam.inMotion) { moveVector = orientationVector * speed * Time.deltaTime; }
+            else { moveVector = gameObject.transform.forward * speed * Time.deltaTime; }
+        } else if (playTest == playTestMode.playTestMode2) {
+            moveVector = orientationVector * speed * Time.deltaTime;
+        } else if (playTest == playTestMode.playTestMode3) {
+            moveVector = gameObject.transform.forward * speed * Time.deltaTime;
+        } else {
+            moveVector = Vector3.zero;
+            Debug.Log("ERROR");
+        }
+
+
+
         Vector3 rotationQuaternion = new Vector3(this.gameObject.transform.eulerAngles.x, rotation, this.gameObject.transform.eulerAngles.z);
         applyGravity(moveVector);
         characterController.Move(moveVector); // Move Player using Character Controller
@@ -153,15 +173,27 @@ public class BoatMovement : MonoBehaviour {
     /// Transition Speed between player rotation and camera rotation.
     /// </param> 
     private void UpdateRotation(float transitionSpeed, float rotationSpeed) {
-        if (!cam.GetInMotion()) {
-            if (Input.GetKey(right)) {
+
+        if (playTest == playTestMode.playTestMode1) {
+            if (!cam.GetInMotion()) {
+                if (isRight()) {
+                    boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 100));
+                } else if (isleft()) {
+                    boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 100));
+                }
+            } else {
+                boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
+            }
+        } else if (playTest == playTestMode.playTestMode2) {
+            boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
+        } else {
+            if (isRight()) {
                 boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 100));
-            } else if (Input.GetKey(left)) {
+            } else if (isleft()) {
                 boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 100));
             }
-        } else {
-            boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
         }
+
 
 
 

@@ -36,6 +36,8 @@ public class CameraController : MonoBehaviour {
     private float correctedDistance;
 
     public bool controller = true;
+    public int maxframes = 10;
+    public int currentFrames = 0;
 
     void Start () { setUpCameraRotation(); }
  
@@ -52,6 +54,11 @@ public class CameraController : MonoBehaviour {
         position = player.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
         handleCameraCollision(vTargetOffset, position, rotation);
         setCamera(rotation, position);
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            controller = !controller;
+        }
     }
  
     private static float ClampAngle (float angle, float min, float max) {
@@ -76,17 +83,35 @@ public class CameraController : MonoBehaviour {
             float tempyDeg = yDeg;
 
             if (!controller) {
+                // if (Mathf.Abs(Input.GetAxis ("Mouse X") * xSpeed * 0.02f) > 90) { xDeg += 90; } 
+                // else { xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f; }
+
+                // if (Mathf.Abs(Input.GetAxis ("Mouse Y") * xSpeed * 0.02f) > 90) { yDeg += 90; } 
+                // else { yDeg += Input.GetAxis ("Mouse Y") * xSpeed * 0.02f; }
+
                 xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f;
                 yDeg -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
             } else {
                 xDeg += Input.GetAxis ("RightJoystickX") * xSpeed * 0.002f;
                 yDeg -= Input.GetAxis ("RightJoystickY") * ySpeed * 0.002f;
             }
+            Debug.Log(xDeg + ", " + yDeg);
+
+            if (Mathf.Abs(tempxDeg - xDeg) > 90) { xDeg = tempxDeg + 90f; } 
+            if (Mathf.Abs(tempyDeg - yDeg) > 90) { yDeg = tempyDeg + 90f; } 
+            
 
             if (xDeg - tempxDeg == 0 && yDeg - tempyDeg == 0) {
-                inMotion = false;
+                currentFrames ++;
+                // inMotion = false;
             } else {
+                currentFrames = 0;
                 inMotion = true;
+                // inMotion = true;
+            }
+
+            if (currentFrames == maxframes) {
+                inMotion = false;
             }
 
             // Debug.Log(inMotion + " IN MOTION");
