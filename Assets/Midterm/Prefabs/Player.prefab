@@ -62,10 +62,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f35dad362a14f4e7bac6698b5c5d545b, type: 2}
-  - {fileID: -6478536213147159724, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
-  - {fileID: -3846018093981099296, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
-  - {fileID: 4874126678125670354, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
+  - {fileID: 2100000, guid: 46dce6914840a410ea7c48540b2421ed, type: 2}
+  - {fileID: 2100000, guid: 46dce6914840a410ea7c48540b2421ed, type: 2}
+  - {fileID: 2100000, guid: 46dce6914840a410ea7c48540b2421ed, type: 2}
+  - {fileID: 2100000, guid: 46dce6914840a410ea7c48540b2421ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,13 +128,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e547408268b94ee8ac4a9650f5f2cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playTestMode: 0
   forward: 119
   left: 97
   right: 100
   back: 115
   cameraMovement: {fileID: 0}
-  isAnchored: 0
-  springJoint: {fileID: 0}
+  characterController: {fileID: 0}
+  drag: 0.1
+  maxSpeed: 10
+  acceleration: 0.2
+  cameraMovement2: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!54 &6779253124693926531
 Rigidbody:
   m_ObjectHideFlags: 0
