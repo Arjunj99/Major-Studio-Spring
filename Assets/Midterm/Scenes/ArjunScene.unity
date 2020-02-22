@@ -390,7 +390,7 @@ PrefabInstance:
     - target: {fileID: 6805482407677054958, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
       propertyPath: playTest
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8794428743024297621, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
@@ -491,6 +491,7 @@ MonoBehaviour:
   offsetFromWall: 0.1
   maxDistance: 18
   minDistance: 18
+  FOVdampening: 5
   speedDistance: 5
   xSpeed: 400
   ySpeed: 400
@@ -504,6 +505,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   cameraRotation: {x: 0.20000002, y: 342.60004, z: -0.0000000033350736}
   inMotion: 0
+  xDeg: 0
+  yDeg: 0
   controller: 0
   maxframes: 40
   currentFrames: 0

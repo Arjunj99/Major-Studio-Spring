@@ -184,7 +184,7 @@ public class BoatMovement : MonoBehaviour {
                 cam.xDeg = Mathf.Lerp(cam.xDeg, gameObject.transform.rotation.eulerAngles.y, transitionSpeed); // LISTEN IF SOMETHING BUGS OUT BECAUSE U ADDED A NEW MODEL. ITS BECAUSE OF THIS STATEMENT.
                 cam.yDeg = Mathf.Lerp(cam.yDeg, 20f, transitionSpeed);
                 // camObject.transform.rotation = Quaternion.Slerp(camObject.transform.rotation, gameObject.transform.rotation, transitionSpeed);
-                Debug.Log("REORIENTING");
+                // Debug.Log("REORIENTING");
             }
             
 
