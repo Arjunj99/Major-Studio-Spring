@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private float offsetFromWall = 0.1f;
     [SerializeField] private float maxDistance = 20;
     [SerializeField] private float minDistance = .6f;
+    [SerializeField] private float FOVdampening = 5.0f;
 
     [Header("Camera Speed Settings")]
     [SerializeField] private float speedDistance = 5;
@@ -29,8 +30,8 @@ public class CameraController : MonoBehaviour {
 
     public bool inMotion;
 
-    private float xDeg = 0.0f;
-    private float yDeg = 0.0f;
+    public float xDeg = 0.0f;
+    public float yDeg = 0.0f;
     private float currentDistance;
     private float desiredDistance;
     private float correctedDistance;
@@ -38,8 +39,9 @@ public class CameraController : MonoBehaviour {
     public bool controller = true;
     public int maxframes = 10;
     public int currentFrames = 0;
+    float tempLerp;
 
-    void Start () { setUpCameraRotation(); }
+    void Start () { setUpCameraRotation(); tempLerp = minDistance; }
  
     void LateUpdate () {
         cameraRotation = new Vector3(gameObject.transform.localRotation.eulerAngles.x, gameObject.transform.localRotation.eulerAngles.y, gameObject.transform.localRotation.eulerAngles.z);
@@ -59,6 +61,13 @@ public class CameraController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             controller = !controller;
         }
+
+
+        tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("Player").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
+        gameObject.GetComponent<Camera>().fieldOfView = tempLerp;
+        Debug.Log(tempLerp);
+        // minDistance = tempLerp;
+        // maxDistance = tempLerp;
     }
  
     private static float ClampAngle (float angle, float min, float max) {
@@ -95,7 +104,7 @@ public class CameraController : MonoBehaviour {
                 xDeg += Input.GetAxis ("RightJoystickX") * xSpeed * 0.002f;
                 yDeg -= Input.GetAxis ("RightJoystickY") * ySpeed * 0.002f;
             }
-            Debug.Log(xDeg + ", " + yDeg);
+            // Debug.Log(xDeg + ", " + yDeg);
 
             if (Mathf.Abs(tempxDeg - xDeg) > 90) { xDeg = tempxDeg + 90f; } 
             if (Mathf.Abs(tempyDeg - yDeg) > 90) { yDeg = tempyDeg + 90f; } 
