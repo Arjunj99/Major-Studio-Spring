@@ -250,8 +250,9 @@ public class BoatMovement : MonoBehaviour {
 
 
     private void applyGravity(Vector3 movement) {
-        if (characterController.isGrounded) {
-            movement -= Vector3.down * 3;
+        if (!characterController.isGrounded) {
+            characterController.Move(Vector3.down * 3);
+            // movement -= Vector3.down * 3;
         }
     }
 }
