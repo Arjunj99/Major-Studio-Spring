@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: rotationLerpSpeed
       value: 0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 6805482407677054958, guid: d9d12c6d2b7d14874a3031838338665f,
+        type: 3}
+      propertyPath: playTest
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8794428743024297621, guid: d9d12c6d2b7d14874a3031838338665f,
         type: 3}
       propertyPath: m_Name
@@ -484,22 +489,27 @@ MonoBehaviour:
   playerHeight: 1.7
   distance: 5
   offsetFromWall: 0.1
-  maxDistance: 20
-  minDistance: 0.6
+  maxDistance: 18
+  minDistance: 18
+  FOVdampening: 5
   speedDistance: 5
-  xSpeed: 200
-  ySpeed: 200
+  xSpeed: 400
+  ySpeed: 400
   zoomRate: 40
-  yMinLimit: -40
-  yMaxLimit: 80
+  yMinLimit: 0
+  yMaxLimit: 50
   rotationDampening: 3
   zoomDampening: 5
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  cameraRotation: {x: 0, y: 0, z: 0}
+  cameraRotation: {x: 0.20000002, y: 342.60004, z: -0.0000000033350736}
   inMotion: 0
+  xDeg: 0
+  yDeg: 0
   controller: 0
+  maxframes: 40
+  currentFrames: 0
 --- !u!114 &425360557
 MonoBehaviour:
   m_ObjectHideFlags: 0
