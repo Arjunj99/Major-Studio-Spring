@@ -1006,7 +1006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &883990535
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1885,7 +1885,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   cameraRotation: {x: 0, y: 0, z: 0}
-  controller: 1
+  controller: 0
 --- !u!114 &1434318714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,6 +2397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8794428743024297621, guid: d9d12c6d2b7d14874a3031838338665f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d12c6d2b7d14874a3031838338665f, type: 3}
 --- !u!1 &1997095416
@@ -2415,7 +2420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1997095417
 Transform:
   m_ObjectHideFlags: 0
@@ -2517,7 +2522,7 @@ PrefabInstance:
     - target: {fileID: 3257602104679958114, guid: ff835bd8b886e41eca43371d889a3c97,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3257602105238593650, guid: ff835bd8b886e41eca43371d889a3c97,
         type: 3}
@@ -2617,7 +2622,7 @@ PrefabInstance:
     - target: {fileID: 6779253124685160961, guid: ff835bd8b886e41eca43371d889a3c97,
         type: 3}
       propertyPath: playTestMode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6779253124685160967, guid: ff835bd8b886e41eca43371d889a3c97,
         type: 3}
