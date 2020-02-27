@@ -51,6 +51,9 @@ public class CameraController : MonoBehaviour {
         mouseInput();
         scrollInput();
 
+        // if (xDeg > 360) { xDeg -= 360f; }
+        // else if (xDeg < 0) { xDeg += 360f; }
+
         rotation = Quaternion.Euler(yDeg, xDeg, 0);
         vTargetOffset = new Vector3 (0, -playerHeight, 0);
         position = player.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
@@ -65,7 +68,7 @@ public class CameraController : MonoBehaviour {
 
         tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("Player").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
         gameObject.GetComponent<Camera>().fieldOfView = tempLerp;
-        Debug.Log(tempLerp);
+        // Debug.Log(tempLerp);
         // minDistance = tempLerp;
         // maxDistance = tempLerp;
     }
@@ -120,6 +123,9 @@ public class CameraController : MonoBehaviour {
             }
 
             if (currentFrames == maxframes) {
+                int turns = ((int) xDeg) / 360;
+                int turns2 = ((int) GameObject.Find("Player").GetComponent<BoatMovement>().boat.GetCurrentRotation()) / 360;
+                xDeg -= ((turns - turns2) * 360);
                 inMotion = false;
             }
 
