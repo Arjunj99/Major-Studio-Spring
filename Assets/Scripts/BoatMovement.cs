@@ -15,6 +15,7 @@ public class BoatMovement : MonoBehaviour {
     [SerializeField] private float maxSpeed; // Max Speed of Boat
     [SerializeField] private float rotationLerpSpeed; // Lerp Speed between Rotations
     int turns = 0;
+    public int levelSpeed = 0;
 
     float yEuler, yEulerPast;
 
@@ -63,7 +64,7 @@ public class BoatMovement : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start() { InitializeBoat("The River Express"); } // Initializes a Boat Instance (YOU CAN NAME THE BOAT)
+    void Start() { InitializeBoat("The River Express"); boat.SetCurrentRotation(gameObject.transform.eulerAngles.y); } // Initializes a Boat Instance (YOU CAN NAME THE BOAT)
 
     // Update is called once per frame
     void Update() {
@@ -74,7 +75,6 @@ public class BoatMovement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { playTest = playTestMode.playTestMode1; }
         else if (Input.GetKeyDown(KeyCode.Alpha2)) { playTest = playTestMode.playTestMode2; }
-        else if (Input.GetKeyDown(KeyCode.Alpha3)) { playTest = playTestMode.playTestMode3; }
 
 
                 float yEuler = gameObject.transform.rotation.eulerAngles.y;
@@ -115,12 +115,8 @@ public class BoatMovement : MonoBehaviour {
         Vector3 orientationVector = Vector3.Normalize(new Vector3(camObject.transform.forward.x, 0, camObject.transform.forward.z)); // Correctly Orients what "Forward" is.
         if (playTest == playTestMode.playTestMode1) {
             moveVector = gameObject.transform.forward * speed * Time.deltaTime;
-            // if (cam.inMotion) { moveVector = orientationVector * speed * Time.deltaTime; }
-            // else { moveVector = gameObject.transform.forward * speed * Time.deltaTime; }
         } else if (playTest == playTestMode.playTestMode2) {
             moveVector = orientationVector * speed * Time.deltaTime;
-        } else if (playTest == playTestMode.playTestMode3) {
-            moveVector = gameObject.transform.forward * speed * Time.deltaTime;
         } else {
             moveVector = Vector3.zero;
             Debug.Log("ERROR");
@@ -154,14 +150,20 @@ public class BoatMovement : MonoBehaviour {
     /// Acceleration of the Boat.
     /// </param>
     private void UpdateCurrentSpeed(float maxSpeed, float acceleration) {
-        if (isForward() && boat.GetCurrentSpeed() < maxSpeed) { // If Forward Input and boat is not at max speed
-            boat.SetCurrentSpeed(boat.GetCurrentSpeed() + acceleration); // Add Acceleration
-            boat.SetInMotion(true);
-        } else if (isBack() && boat.GetCurrentSpeed() > 0f) { // If Back Input and boat is not at 0
-            boat.SetCurrentSpeed(boat.GetCurrentSpeed() - deacceleration); // Deaccelerate
-            boat.SetInMotion(true);
-        } else {
-            boat.SetInMotion(false); // Handles the In Motion Bool
+        if (playTest == playTestMode.playTestMode1) {
+            if (isForward() && boat.GetCurrentSpeed() < maxSpeed) { // If Forward Input and boat is not at max speed
+                boat.SetCurrentSpeed(boat.GetCurrentSpeed() + acceleration); // Add Acceleration
+                boat.SetInMotion(true);
+            } else if (isBack() && boat.GetCurrentSpeed() > 0f) { // If Back Input and boat is not at 0
+                boat.SetCurrentSpeed(boat.GetCurrentSpeed() - deacceleration); // Deaccelerate
+                boat.SetInMotion(true);
+            } else {
+                boat.SetInMotion(false); // Handles the In Motion Bool
+            }
+        } else if (playTest == playTestMode.playTestMode2) {
+            if (Input.GetButtonDown("joystick button 5") && levelSpeed < 2) {
+                levelSpeed += 1;
+            }
         }
     }
     
