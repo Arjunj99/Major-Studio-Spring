@@ -104,8 +104,8 @@ public class CameraController : MonoBehaviour {
                 xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f;
                 yDeg -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
             } else {
-                xDeg += Input.GetAxis ("RightJoystickX") * xSpeed * 0.002f;
-                yDeg -= Input.GetAxis ("RightJoystickY") * ySpeed * 0.002f;
+                xDeg += Input.GetAxis ("RightJoystickX") * xSpeed * 0.01f;
+                yDeg -= Input.GetAxis ("RightJoystickY") * ySpeed * 0.01f;
             }
             // Debug.Log(xDeg + ", " + yDeg);
 
