@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8794428743024297621}
-  m_LocalRotation: {x: -0, y: -0.5681243, z: -0, w: -0.82294273}
+  m_LocalRotation: {x: -0, y: -0.56812364, z: 0, w: -0.8229432}
   m_LocalPosition: {x: -119, y: 1.5, z: -107.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f35dad362a14f4e7bac6698b5c5d545b, type: 2}
+  - {fileID: 0}
   - {fileID: -6478536213147159724, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
   - {fileID: -3846018093981099296, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
   - {fileID: 4874126678125670354, guid: 33dbebb08f079495e946a059d312b5ee, type: 3}
@@ -116,12 +116,16 @@ MonoBehaviour:
   left: 97
   right: 100
   back: 115
+  playTest: 0
   characterController: {fileID: 0}
   cam: {fileID: 0}
-  deacceleration: 0.4
-  acceleration: 10
-  maxSpeed: 50
-  rotationLerpSpeed: 0.2
+  camObject: {fileID: 0}
+  deacceleration: 0.2
+  acceleration: 1
+  maxSpeed: 10
+  rotationLerpSpeed: 0.02
+  levelSpeed: 0
+  rotationVal: 200
 --- !u!143 &6285131179678056692
 CharacterController:
   m_ObjectHideFlags: 0
@@ -280,6 +284,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -113181020801827196, guid: 85295b30ac9ca412e879b649fb353b74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85295b30ac9ca412e879b649fb353b74, type: 3}
