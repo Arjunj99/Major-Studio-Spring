@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoatMovement : MonoBehaviour {
     public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S; // Player Key Inputs for Boat
@@ -15,6 +16,8 @@ public class BoatMovement : MonoBehaviour {
     [SerializeField] private float maxSpeed; // Max Speed of Boat
     [SerializeField] private float rotationLerpSpeed; // Lerp Speed between Rotations
     int turns = 0;
+    public int levelSpeed = 0;
+    public float rotationVal;
 
     float yEuler, yEulerPast;
 
@@ -63,18 +66,17 @@ public class BoatMovement : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start() { InitializeBoat("The River Express"); } // Initializes a Boat Instance (YOU CAN NAME THE BOAT)
+    void Start() { InitializeBoat("The River Express"); boat.SetCurrentRotation(gameObject.transform.eulerAngles.y); } // Initializes a Boat Instance (YOU CAN NAME THE BOAT)
 
     // Update is called once per frame
     void Update() {
         MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
         ApplyDragToBoat(deacceleration);
         UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
-        UpdateRotation(rotationLerpSpeed, 5f);
+        UpdateRotation(rotationLerpSpeed, rotationVal);
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { playTest = playTestMode.playTestMode1; }
         else if (Input.GetKeyDown(KeyCode.Alpha2)) { playTest = playTestMode.playTestMode2; }
-        else if (Input.GetKeyDown(KeyCode.Alpha3)) { playTest = playTestMode.playTestMode3; }
 
 
                 float yEuler = gameObject.transform.rotation.eulerAngles.y;
@@ -86,7 +88,7 @@ public class BoatMovement : MonoBehaviour {
                     Debug.Log("Y Rotation: " + yEuler);
                 }
 
-        
+        if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
     }
 
     /// <summary>
@@ -112,15 +114,13 @@ public class BoatMovement : MonoBehaviour {
     /// </param>
     private void MoveBoat(float speed, float rotation) {
         Vector3 moveVector; // Vector used for current frame of movement
-        Vector3 orientationVector = Vector3.Normalize(new Vector3(camObject.transform.forward.x, 0, camObject.transform.forward.z)); // Correctly Orients what "Forward" is.
+        Vector3 orientationVector;
+        if (playTest == playTestMode.playTestMode1) { orientationVector = Vector3.Normalize(new Vector3(camObject.transform.forward.x, 0, camObject.transform.forward.z)); } // Correctly Orients what "Forward" is.
+        else { orientationVector = Vector3.Normalize(new Vector3(gameObject.transform.forward.x, 0, gameObject.transform.forward.z)); }
         if (playTest == playTestMode.playTestMode1) {
             moveVector = gameObject.transform.forward * speed * Time.deltaTime;
-            // if (cam.inMotion) { moveVector = orientationVector * speed * Time.deltaTime; }
-            // else { moveVector = gameObject.transform.forward * speed * Time.deltaTime; }
         } else if (playTest == playTestMode.playTestMode2) {
             moveVector = orientationVector * speed * Time.deltaTime;
-        } else if (playTest == playTestMode.playTestMode3) {
-            moveVector = gameObject.transform.forward * speed * Time.deltaTime;
         } else {
             moveVector = Vector3.zero;
             Debug.Log("ERROR");
@@ -154,14 +154,22 @@ public class BoatMovement : MonoBehaviour {
     /// Acceleration of the Boat.
     /// </param>
     private void UpdateCurrentSpeed(float maxSpeed, float acceleration) {
-        if (isForward() && boat.GetCurrentSpeed() < maxSpeed) { // If Forward Input and boat is not at max speed
-            boat.SetCurrentSpeed(boat.GetCurrentSpeed() + acceleration); // Add Acceleration
-            boat.SetInMotion(true);
-        } else if (isBack() && boat.GetCurrentSpeed() > 0f) { // If Back Input and boat is not at 0
-            boat.SetCurrentSpeed(boat.GetCurrentSpeed() - deacceleration); // Deaccelerate
-            boat.SetInMotion(true);
-        } else {
-            boat.SetInMotion(false); // Handles the In Motion Bool
+        if (playTest == playTestMode.playTestMode1) {
+            if (isForward() && boat.GetCurrentSpeed() < maxSpeed) { // If Forward Input and boat is not at max speed
+                boat.SetCurrentSpeed(boat.GetCurrentSpeed() + acceleration); // Add Acceleration
+                boat.SetInMotion(true);
+            } else if (isBack() && boat.GetCurrentSpeed() > 0f) { // If Back Input and boat is not at 0
+                boat.SetCurrentSpeed(boat.GetCurrentSpeed() - deacceleration); // Deaccelerate
+                boat.SetInMotion(true);
+            } else {
+                boat.SetInMotion(false); // Handles the In Motion Bool
+            }
+        } else if (playTest == playTestMode.playTestMode2) {
+            if (Input.GetButtonDown("joystick button 5") && levelSpeed < 2) { levelSpeed += 1; } 
+            if (Input.GetButtonDown("joystick button 4") && levelSpeed > -2) { levelSpeed -= 1; }
+
+            boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), levelSpeed * 10, Time.deltaTime));
+            if (levelSpeed != 0) { boat.SetInMotion(true); }
         }
     }
     
@@ -175,127 +183,48 @@ public class BoatMovement : MonoBehaviour {
         // bool directionRight;
         if (playTest == playTestMode.playTestMode1) {
             if (isRight()) {
-                boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 100));
+                boat.SetCurrentRotation(boat.GetCurrentRotation() + (rotationSpeed / 100));
             } else if (isleft()) {
-                boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 100));
+                boat.SetCurrentRotation(boat.GetCurrentRotation() - (rotationSpeed / 100));
             }
 
-
-
-            // if (boat.GetCurrentRotation() > 360) {
-            //     boat.SetCurrentRotation(boat.GetCurrentRotation() - 360f);
-            // } else if (boat.GetCurrentRotation() < 0) {
-            //     boat.SetCurrentRotation(boat.GetCurrentRotation() + 360f);
-            // }
-
-
-
-
-
-
-
-            // if (gameObject.transform.rotation.eulerAngles.y > 360) {
-            //     gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles.x, gameObject.transform.rotation.eulerAngles.y - 360, gameObject.transform.rotation.eulerAngles.z);
-            // } else if (gameObject.transform.rotation.eulerAngles.y < 360) {
-            //     gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles.x, gameObject.transform.rotation.eulerAngles.y + 360, gameObject.transform.rotation.eulerAngles.z);
-            // }
-
             float yRotation = gameObject.transform.rotation.eulerAngles.y;
-            // if (yRotation > 360) { yRotation -= 360; }
-            // else if (yRotation < 0) { yRotation += 360; }
-
-
-            // float yEuler = gameObject.transform.rotation.eulerAngles.y;
-            // if (yEuler > 360) {
-            //     yEuler -= 360f;
-            //     gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles.x, yEuler, gameObject.transform.rotation.eulerAngles.z);
-            // } else if (yEuler < 0) {
-            //     yEuler += 360f;
-            //     gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles.x, yEuler, gameObject.transform.rotation.eulerAngles.z);
-            // }
 
             if (!cam.GetInMotion()) {
-                // if (Camera.main.transform.localEulerAngles.y > 0) {
-                //     Camera.main.transform.localRotation = Quaternion.Lerp(Camera.main.transform.localRotation, Quaternion.Euler(gameObject.transform.localEulerAngles), transitionSpeed);
-                // }
-                // float yEuler, yEulerPast;
-                // yEulerPast = yEuler;
                 yEuler = gameObject.transform.rotation.eulerAngles.y;
-
-                    // if (yEuler > 360) { cam.xDeg -= 360f; }
-                    // else if (cam.xDeg < 0) { cam.xDeg += 360f; }
-
-
-                // if (Mathf.Abs(yEulerPast - yEuler) > 300f) {
-                //     cam.xDeg -= 360f;
-                // }
-
-
-                // if (cam.xDeg > 180f) {
-                //     yEuler += 360f;
-                // }
-
-
-
-                // if (yEuler > 360f) { yEuler -= 360f; }
-
-                // if (cam.xDeg > 180f) {
-                //     yEuler += 360f;
-                // }
-
-                // bool directionRight;
-                // if (cam.xDeg < yEuler) {
-                //     directionRight = true;
-                // } else {
-                //     directionRight = false;
-                // }
-
-                // if (directionRight) {
-                //     cam.xDeg += (cam.xDeg/yEuler)
-                // }
-                
                 cam.xDeg = Mathf.Lerp(cam.xDeg, boat.GetCurrentRotation(), transitionSpeed);
-
-
-                // cam.xDeg = Mathf.Lerp(cam.xDeg, yEuler, transitionSpeed); // LISTEN IF SOMETHING BUGS OUT BECAUSE U ADDED A NEW MODEL. ITS BECAUSE OF THIS STATEMENT.
-
-                // cam.xDeg = yEuler; // LISTEN IF SOMETHING BUGS OUT BECAUSE U ADDED A NEW MODEL. ITS BECAUSE OF THIS STATEMENT.
                 if (Input.GetKeyDown(KeyCode.C)) {
                     Debug.Log("X Degress: " + cam.xDeg);
                     Debug.Log("Y Rotation: " + boat.GetCurrentRotation());
                 }
-                // Debug.Log("X Degress: " + cam.xDeg);
-                // Debug.Log("Y Rotation: " + gameObject.transform.rotation.eulerAngles.y);
                 cam.yDeg = Mathf.Lerp(cam.yDeg, 20f, transitionSpeed);
-
-
-                // camObject.transform.rotation = Quaternion.Slerp(camObject.transform.rotation, gameObject.transform.rotation, transitionSpeed);
-                // Debug.Log("REORIENTING");
             }
-            
-
-            // if (!cam.GetInMotion()) {
-            //     if (isRight()) {
-            //         boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 100));
-            //     } else if (isleft()) {
-            //         boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 100));
-            //     }
-            // } else {
-            //     boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
-            // }
         } else if (playTest == playTestMode.playTestMode2) {
-            boat.SetCurrentRotation(Mathf.Lerp(boat.GetCurrentRotation(), cam.gameObject.transform.rotation.eulerAngles.y, transitionSpeed));
+            if (Input.GetButton("joystick button 7")) {
+                Debug.Log("7");
+                boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 500));
+            } else if (Input.GetButton("joystick button 6")) {
+                Debug.Log("6");
+                boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 500));
+            }
+
+            float yRotation = gameObject.transform.rotation.eulerAngles.y;
+
+            if (!cam.GetInMotion()) {
+                yEuler = gameObject.transform.rotation.eulerAngles.y;
+                cam.xDeg = Mathf.Lerp(cam.xDeg, boat.GetCurrentRotation(), transitionSpeed);
+                if (Input.GetKeyDown(KeyCode.C)) {
+                    Debug.Log("X Degress: " + cam.xDeg);
+                    Debug.Log("Y Rotation: " + boat.GetCurrentRotation());
+                }
+                cam.yDeg = Mathf.Lerp(cam.yDeg, 20f, transitionSpeed);
+            }
         } else {
             if (isRight()) {
                 boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 100));
             } else if (isleft()) {
                 boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 100));
             }
-
-            // if (Input.GetKeyDown(KeyCode.C)) {
-            //         Debug.Log("X Degress: " + cam.xDeg);
-            //         Debug.Log("Y Rotation: " + yEuler);
-            // }
         }
 
 
