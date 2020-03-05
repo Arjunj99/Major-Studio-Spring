@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour {
         }
 
 
-        tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("Player").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
+        tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("SteamBoat").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
         gameObject.GetComponent<Camera>().fieldOfView = tempLerp;
         // Debug.Log(tempLerp);
         // minDistance = tempLerp;
@@ -124,7 +124,7 @@ public class CameraController : MonoBehaviour {
 
             if (currentFrames == maxframes) {
                 int turns = ((int) xDeg) / 360;
-                int turns2 = ((int) GameObject.Find("Player").GetComponent<BoatMovement>().boat.GetCurrentRotation()) / 360;
+                int turns2 = ((int) GameObject.Find("SteamBoat").GetComponent<BoatMovement>().boat.GetCurrentRotation()) / 360;
                 xDeg -= ((turns - turns2) * 360);
                 inMotion = false;
             }

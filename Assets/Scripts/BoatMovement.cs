@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoatMovement : MonoBehaviour {
     public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S; // Player Key Inputs for Boat
@@ -87,7 +88,7 @@ public class BoatMovement : MonoBehaviour {
                     Debug.Log("Y Rotation: " + yEuler);
                 }
 
-        
+        if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
     }
 
     /// <summary>
