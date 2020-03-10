@@ -3,7 +3,12 @@ guid: d8c2272ec75e9274b9f4d44e2f10b0de
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 24-brushed-dark-steel-metal-texture-seamless
+    second: {fileID: 2800000, guid: eeaed79305baa464dab6464119b256d8, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
