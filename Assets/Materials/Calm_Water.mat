@@ -19,9 +19,13 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: b9d446712862141c2a6a6c6bf257a550, type: 3}
+        m_Scale: {x: 9, y: 4}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d34864fbe164c470c89cdefb70895c96, type: 3}
-        m_Scale: {x: 9, y: 6}
+        m_Texture: {fileID: 2800000, guid: 1cfda835094f74a0cb3d71aa7197a6f6, type: 3}
+        m_Scale: {x: 9, y: 4}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _WaterScrollSpeed: -0.025
