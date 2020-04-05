@@ -6,6 +6,8 @@
         _WaveFrequency ("Wave Frequency", Float) = 1.0
         _WaveAmplitude ("Wave Amplitude", Float) = 0.25
         _WaterScrollSpeed ("Water Scroll Speed", Float) = 1.0
+        _Illumi ("Illumi Color", color) = (1, 1, 1, 1)
+        _EmissionLM ("Emission(Lightmapper)", Float) = 1
     }
     SubShader
     {
