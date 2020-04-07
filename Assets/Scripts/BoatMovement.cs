@@ -21,6 +21,12 @@ public class BoatMovement : MonoBehaviour {
 
     float yEuler, yEulerPast;
 
+    public Vector3 currentForce = Vector3.zero;
+
+    public bool inCurrent = false;
+
+
+
     /// <summary>
     /// Checks for any Forward Input.
     /// </summary>
@@ -89,6 +95,10 @@ public class BoatMovement : MonoBehaviour {
                 }
 
         if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
+
+        // if (!inCurrent) {
+        //     currentForce = Vector3.zero;
+        // }
     }
 
     /// <summary>
@@ -128,7 +138,7 @@ public class BoatMovement : MonoBehaviour {
 
         Vector3 rotationQuaternion = new Vector3(this.gameObject.transform.eulerAngles.x, rotation, this.gameObject.transform.eulerAngles.z); // Boats Current Rotation is the rotation parameter.
         applyGravity(moveVector); // Applies Gravity to the Boat
-        characterController.Move(moveVector); // Move Player using Character Controller
+        characterController.Move(moveVector + currentForce); // Move Player using Character Controller
         this.gameObject.transform.rotation = Quaternion.Euler(rotationQuaternion);
     }
 
@@ -165,8 +175,8 @@ public class BoatMovement : MonoBehaviour {
                 boat.SetInMotion(false); // Handles the In Motion Bool
             }
         } else if (playTest == playTestMode.playTestMode2) {
-            if (Input.GetButtonDown("joystick button 5") && levelSpeed < 2) { levelSpeed += 1; } 
-            if (Input.GetButtonDown("joystick button 4") && levelSpeed > -2) { levelSpeed -= 1; }
+            if ((Input.GetButtonDown("joystick button 5") || (Input.GetKeyDown(KeyCode.W)) && levelSpeed < 2)) { levelSpeed += 1; } 
+            if ((Input.GetButtonDown("joystick button 4") || (Input.GetKeyDown(KeyCode.S)) && levelSpeed > -2)) { levelSpeed -= 1; }
 
             boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), levelSpeed * 10, Time.deltaTime));
             if (levelSpeed != 0) { boat.SetInMotion(true); }
@@ -200,10 +210,10 @@ public class BoatMovement : MonoBehaviour {
                 cam.yDeg = Mathf.Lerp(cam.yDeg, 20f, transitionSpeed);
             }
         } else if (playTest == playTestMode.playTestMode2) {
-            if (Input.GetButton("joystick button 7")) {
+            if (Input.GetButton("joystick button 7") || Input.GetKey(KeyCode.D)) {
                 Debug.Log("7");
                 boat.SetCurrentRotation(boat.GetCurrentRotation() + (boat.GetCurrentSpeed() * rotationSpeed / 500));
-            } else if (Input.GetButton("joystick button 6")) {
+            } else if (Input.GetButton("joystick button 6") || Input.GetKey(KeyCode.A)) {
                 Debug.Log("6");
                 boat.SetCurrentRotation(boat.GetCurrentRotation() - (boat.GetCurrentSpeed() * rotationSpeed / 500));
             }
