@@ -12,6 +12,6 @@ public class RotateWheels : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        this.gameObject.transform.Rotate(new Vector3(0f, 0f, this.boatMovement.boat.GetCurrentSpeed() * multi));
+        this.gameObject.transform.Rotate(new Vector3(0f, 0f, this.boatMovement.boat.GetCurrentSpeed() + boatMovement.currentForce.magnitude * multi));
     }
 }
