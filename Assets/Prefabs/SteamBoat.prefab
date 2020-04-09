@@ -5118,7 +5118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb06b0f9a86c4d0cb382eea0fd9bf48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobAngle: 7.15
+  bobAngle: 7.14
   bobSpeed: 1
   boatMovement: {fileID: 0}
 --- !u!1 &8627008582419641520
@@ -5255,6 +5255,7 @@ MonoBehaviour:
   rotationVal: 100
   currentForce: {x: 0, y: 0, z: 0}
   inCurrent: 0
+  gravity: 3
 --- !u!143 &6524617738933891793
 CharacterController:
   m_ObjectHideFlags: 0
