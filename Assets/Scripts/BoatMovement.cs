@@ -176,7 +176,7 @@ public class BoatMovement : MonoBehaviour {
             }
         } else if (playTest == playTestMode.playTestMode2) {
             if ((Input.GetButtonDown("joystick button 5") || (Input.GetKeyDown(KeyCode.W)) && levelSpeed < 2)) { levelSpeed += 1; } 
-            if ((Input.GetButtonDown("joystick button 4") || (Input.GetKeyDown(KeyCode.S)) && levelSpeed > -2)) { levelSpeed -= 1; }
+            if ((Input.GetButtonDown("joystick button 4") || (Input.GetKeyDown(KeyCode.S)) && levelSpeed > -1)) { levelSpeed -= 1; }
 
             boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), levelSpeed * 10, Time.deltaTime));
             if (levelSpeed != 0) { boat.SetInMotion(true); }
