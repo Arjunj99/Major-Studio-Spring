@@ -25,6 +25,8 @@ public class BoatMovement : MonoBehaviour {
 
     public bool inCurrent = false;
 
+    public float gravity = 3f;
+
 
 
     /// <summary>
@@ -96,9 +98,7 @@ public class BoatMovement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
 
-        // if (!inCurrent) {
-        //     currentForce = Vector3.zero;
-        // }
+        // if (!inCurrent) { currentForce = Vector3.zero; }
     }
 
     /// <summary>
@@ -281,7 +281,7 @@ public class BoatMovement : MonoBehaviour {
 
     private void applyGravity(Vector3 movement) {
         if (!characterController.isGrounded) {
-            characterController.Move(Vector3.down * 3);
+            characterController.Move(Vector3.down * gravity);
         }
     }
 }
