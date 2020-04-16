@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_Fire_Purple_Trail
+  m_Name: MAT_Fire_Blue_Trail
   m_Shader: {fileID: -6465566751694194690, guid: 28a59075430754b0e820087dc03b56b2,
     type: 3}
   m_ShaderKeywords: 
