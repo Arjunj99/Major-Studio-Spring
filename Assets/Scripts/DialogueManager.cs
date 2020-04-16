@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
             //just the one to get main NPC talking, the others will need something else, still working it out, 
             //might be simplistic lines through Ink or serialized fields.
             
-            / questText = fruitImage + " x " + pickUpManager.fruitItems; 
+            questText = fruitImage + " x " + pickUpManager.fruitItems; 
             
              
         }
