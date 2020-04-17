@@ -76,7 +76,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_523B2F04: {r: 0.46108437, g: 15.067338, b: 29.355759, a: 0}
+    - Color_523B2F04: {r: 0.28531134, g: 5.135604, b: 15.787228, a: 0}
     - Color_8B5366A4: {r: 8, g: 8, b: 8, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
