@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -198,11 +198,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.642054
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -413,6 +408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swampTorch
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
@@ -634,11 +634,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.728222
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -729,11 +724,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.212989
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -829,6 +819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (4)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &178362662 stripped
@@ -890,8 +885,8 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 8ae79fc5752bc4d558f0e34b125d7fac, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
+  m_TreeDistance: 300
+  m_TreeBillboardDistance: 600
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
@@ -1491,6 +1486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &281270090 stripped
@@ -1762,11 +1762,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.2678027
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -2562,6 +2557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (5)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &459605781 stripped
@@ -2893,11 +2893,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.2678027
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -3478,11 +3473,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.450241
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -3622,6 +3612,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (6)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &640228213 stripped
@@ -3707,11 +3702,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.2678027
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -4973,10 +4963,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90135d6714e5d4545b7c94c088489993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 0}
+  box: {fileID: 0}
   currentPos: 0
   boatMovement: {fileID: 0}
   rectTransform: {fileID: 0}
+  positions: []
+  increment: 20
   rotations: []
 --- !u!114 &819766079
 MonoBehaviour:
@@ -5310,6 +5302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -6323,6 +6320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (5)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &943624385 stripped
@@ -6745,6 +6747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -7755,6 +7762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (11)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1293418299 stripped
@@ -7864,12 +7876,6 @@ PrefabInstance:
 --- !u!1 &1327248164 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8627008582419641520, guid: 0c968164f8a684eca94c75fea39cbaaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327248163}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1327248176 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4747378130900518563, guid: 0c968164f8a684eca94c75fea39cbaaa,
     type: 3}
   m_PrefabInstance: {fileID: 1327248163}
   m_PrefabAsset: {fileID: 0}
@@ -10260,6 +10266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (3)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &1613532422 stripped
@@ -10696,6 +10707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (8)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1678504237 stripped
@@ -10856,6 +10872,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (9)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1683299572 stripped
@@ -10918,8 +10939,8 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 22bdd00be1554487ab6e2ad189ae8352, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
+  m_TreeBillboardDistance: 300
+  m_TreeCrossFadeLength: 200
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
@@ -11116,6 +11137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -12135,11 +12161,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.426097
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -12334,6 +12355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -12540,6 +12566,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (10)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1919618006 stripped
@@ -12657,8 +12688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184679c48227f4f5ebc522392906cf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1935542938}
-  playerTransform: {fileID: 1327248176}
+  cameraTransform: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!114 &1935542933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12696,7 +12727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff62d9f75284521a6f2af3185c2cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1327248176}
+  player: {fileID: 0}
   playerHeight: 1.7
   distance: 5
   offsetFromWall: 0.1
@@ -13120,6 +13151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -13868,11 +13904,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.426097
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 5c9d3a96638ef495cb009edd8babfaea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0bbcb83f4e2c428d9caaf35ffb645d9, type: 2}
     - target: {fileID: -927199367670048503, guid: 5c9d3a96638ef495cb009edd8babfaea,
         type: 3}
       propertyPath: m_Name
@@ -14415,6 +14446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &2120532031 stripped
@@ -14489,6 +14525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
