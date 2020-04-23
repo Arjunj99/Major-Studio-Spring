@@ -895,7 +895,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 40
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4958,7 +4958,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 04d483738676f431db39f515ef1050fe, type: 2}
+      objectReference: {fileID: 2100000, guid: acd4f74021305454684e1c32742e1fd6, type: 2}
     - target: {fileID: -927199367670048503, guid: f75dbfadab3394f90ac95361d582a767,
         type: 3}
       propertyPath: m_Name
@@ -5044,7 +5044,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 04d483738676f431db39f515ef1050fe, type: 2}
+      objectReference: {fileID: 2100000, guid: acd4f74021305454684e1c32742e1fd6, type: 2}
     - target: {fileID: -927199367670048503, guid: d9eebff64eb464df8b65fff5594a0f7f,
         type: 3}
       propertyPath: m_Name
