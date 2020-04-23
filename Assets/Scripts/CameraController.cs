@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private Transform player;
 
     [Header("Camera Position Settings")]
-    [SerializeField] private float playerHeight = 1.7f;
+    [SerializeField] public float playerHeight = 1.7f;
     [SerializeField] private float distance = 5.0f;
     [SerializeField] private float offsetFromWall = 0.1f;
     [SerializeField] private float maxDistance = 20;
@@ -21,8 +21,8 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private int zoomRate = 40;
 
     [Header("Camera Limit and Damping Settings")]
-    [SerializeField] private int yMinLimit = -40;
-    [SerializeField] private int yMaxLimit = 80;
+    [SerializeField] public float yMinLimit = -40;
+    [SerializeField] public float yMaxLimit = 80;
     [SerializeField] private float rotationDampening = 3.0f;
     [SerializeField] private float zoomDampening = 5.0f;
     public LayerMask collisionLayers = -1;
@@ -61,9 +61,9 @@ public class CameraController : MonoBehaviour {
         setCamera(rotation, position);
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            controller = !controller;
-        }
+        // if (Input.GetKeyDown(KeyCode.LeftShift)) {
+        //     controller = !controller;
+        // }
 
 
         tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("SteamBoat").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
