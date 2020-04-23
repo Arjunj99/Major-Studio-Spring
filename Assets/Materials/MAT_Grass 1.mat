@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MAT_Grass 1
+  m_Shader: {fileID: -6465566751694194690, guid: 10666faf63e914f8893c978680900502,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_187C42D2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df5841edcf59c42218ea065c130f5ff1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_84EB8DF9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 6ba672df0754d4bdca0f226d7158e4e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_90FBBEAD_Texture_1:
+        m_Texture: {fileID: 2800000, guid: c3398945f7b2444daa28bd605492174a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_CC6848CC: 0.01
+    - Vector1_D3C74C25: 1
+    m_Colors:
+    - Color_7ABA673C: {r: 0, g: 0.8666667, b: 0, a: 0}
+    - Vector2_1086C18D: {r: 1, g: 0, b: 0, a: 0}
