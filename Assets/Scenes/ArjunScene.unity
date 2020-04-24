@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5254539, g: 0.7506009, b: 0.9056604, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -1396,7 +1396,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a61427e3b51814a6c80ec861296a9e23, type: 2}
+  - {fileID: 2100000, guid: 423e7148d0c164eb1abe47b1a258cf45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
