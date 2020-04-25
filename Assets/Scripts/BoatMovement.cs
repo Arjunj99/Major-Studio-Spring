@@ -38,6 +38,9 @@ public class BoatMovement : MonoBehaviour {
     public ParticleSystem ember;
     public bool lookUp;
 
+    public AudioSource audioSource;
+    public AudioClip hornClip;
+
 
 
 
@@ -88,7 +91,9 @@ public class BoatMovement : MonoBehaviour {
         ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
 
 
-
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            audioSource.PlayOneShot(hornClip);
+        }
 
 
 

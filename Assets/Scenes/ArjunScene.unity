@@ -1396,7 +1396,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 423e7148d0c164eb1abe47b1a258cf45, type: 2}
+  - {fileID: 2100000, guid: a61427e3b51814a6c80ec861296a9e23, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2490,6 +2490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MushroomTree
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 25cef044337014f0db9d8ac76d5cb026,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25cef044337014f0db9d8ac76d5cb026, type: 3}
 --- !u!1 &365129783
@@ -2895,7 +2900,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -2922,8 +2927,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425360555}
-  m_LocalRotation: {x: -0.05755089, y: 0.8126987, z: -0.081451915, w: -0.57408565}
-  m_LocalPosition: {x: 327.6917, y: 69.75911, z: 379.84805}
+  m_LocalRotation: {x: -0.0005424525, y: 0.79747087, z: -0.00071513833, w: -0.6033568}
+  m_LocalPosition: {x: 368.93042, y: 77.62787, z: 361.34503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12868,6 +12873,16 @@ PrefabInstance:
       propertyPath: rotlimit
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6036146147027746251, guid: 0c968164f8a684eca94c75fea39cbaaa,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 338703048}
+    - target: {fileID: 6036146147027746251, guid: 0c968164f8a684eca94c75fea39cbaaa,
+        type: 3}
+      propertyPath: hornClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e1687d94bf32c4f27ba1605634b5087a, type: 3}
     - target: {fileID: 6524617738933891793, guid: 0c968164f8a684eca94c75fea39cbaaa,
         type: 3}
       propertyPath: m_SlopeLimit
@@ -12897,6 +12912,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteamBoat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627008582419641520, guid: 0c968164f8a684eca94c75fea39cbaaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c968164f8a684eca94c75fea39cbaaa, type: 3}
