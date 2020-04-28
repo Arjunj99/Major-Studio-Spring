@@ -37,9 +37,7 @@ public class BoatMovement : MonoBehaviour {
     public ParticleSystem smoke;
     public ParticleSystem ember;
     public bool lookUp;
-
-    public AudioSource audioSource;
-    public AudioClip hornClip;
+    public Vector3 moveVector; // Vector used for current frame of movement
 
 
 
@@ -91,9 +89,7 @@ public class BoatMovement : MonoBehaviour {
         ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
 
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            audioSource.PlayOneShot(hornClip);
-        }
+
 
 
 
@@ -131,7 +127,7 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        Vector3 moveVector; // Vector used for current frame of movement
+        
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
