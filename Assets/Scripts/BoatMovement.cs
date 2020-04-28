@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary> MonoBehavior Class that allows for Boat Movement. Requires. </summary>
 public class BoatMovement : MonoBehaviour {
-    public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S; // Player Key Inputs for Boat
+    [HideInInspector] public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S; // Player Key Inputs for Boat
     [HideInInspector] public CharacterController characterController; // CharacterController of the Boat Object
     [HideInInspector] public Boat boat; // Boat Instance that stores Movement Data
     [HideInInspector] public CameraController cam; // CameraController for the Main Camera 
@@ -74,7 +74,7 @@ public class BoatMovement : MonoBehaviour {
     void Start() { 
         // Initializes a Boat Instance (YOU CAN NAME THE BOAT)
         InitializeBoat("The River Express"); 
-        boat.SetCurrentRotation(gameObject.transform.eulerAngles.y); //Could be the source of the bug
+        //boat.SetCurrentRotation(gameObject.transform.eulerAngles.y); //Could be the source of the bug
     } 
 
     // Update is called once per frame
@@ -127,7 +127,7 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        
+        Debug.Log(speed);
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
