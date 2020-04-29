@@ -22,7 +22,7 @@ public class BoatMovement : MonoBehaviour {
 
     public bool inCurrent = false;
 
-    public float gravity = 3f;
+    public float gravity = 0f;
 
     float rotationTime = 0;
     public float maxTime = 0.4f;
@@ -38,6 +38,8 @@ public class BoatMovement : MonoBehaviour {
     public ParticleSystem ember;
     public bool lookUp;
     public Vector3 moveVector; // Vector used for current frame of movement
+
+    public float grav;
 
 
 
@@ -74,7 +76,7 @@ public class BoatMovement : MonoBehaviour {
     void Start() { 
         // Initializes a Boat Instance (YOU CAN NAME THE BOAT)
         InitializeBoat("The River Express"); 
-        //boat.SetCurrentRotation(gameObject.transform.eulerAngles.y); //Could be the source of the bug
+        boat.SetCurrentRotation(gameObject.transform.eulerAngles.y); //Could be the source of the bug
     } 
 
     // Update is called once per frame
@@ -127,7 +129,9 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        Debug.Log(speed);
+        Debug.Log("SPEED: " + speed);
+        Debug.Log("MAGNITUDE: " + moveVector.magnitude);
+        Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
@@ -192,7 +196,10 @@ public class BoatMovement : MonoBehaviour {
 
     private Vector3 applyGravity(Vector3 movement) {
         if (!characterController.isGrounded) {
+            gravity += grav;
             movement.y -= gravity;
+        } else {
+            gravity = 0f;
         }
         return movement;
     }

@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour {
     public int currentFrames = 0;
     float tempLerp;
 
-    void Start () { setUpCameraRotation(); tempLerp = minDistance; }
+    void Start () { transform.rotation = player.transform.rotation; Debug.Log(player.transform.rotation.eulerAngles); setUpCameraRotation(); tempLerp = minDistance;  }
  
     void LateUpdate () {
         cameraRotation = new Vector3(gameObject.transform.localRotation.eulerAngles.x, gameObject.transform.localRotation.eulerAngles.y, gameObject.transform.localRotation.eulerAngles.z);
@@ -80,9 +80,9 @@ public class CameraController : MonoBehaviour {
     }
 
     private void setUpCameraRotation() {
-        Vector3 angles = transform.eulerAngles;
+        /*Vector3 angles = transform.eulerAngles;
         xDeg = angles.x;
-        yDeg = angles.y;
+        yDeg = angles.y;*/
  
         currentDistance = distance;
         desiredDistance = distance;
