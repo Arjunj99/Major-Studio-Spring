@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary> MonoBehavior Class that allows for Boat Movement. Requires. </summary>
 public class BoatMovement : MonoBehaviour {
-    public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S; // Player Key Inputs for Boat
+    [HideInInspector] public KeyCode forward = KeyCode.W, left = KeyCode.A, right = KeyCode.D, back = KeyCode.S; // Player Key Inputs for Boat
     [HideInInspector] public CharacterController characterController; // CharacterController of the Boat Object
     [HideInInspector] public Boat boat; // Boat Instance that stores Movement Data
     [HideInInspector] public CameraController cam; // CameraController for the Main Camera 
@@ -22,7 +22,7 @@ public class BoatMovement : MonoBehaviour {
 
     public bool inCurrent = false;
 
-    public float gravity = 3f;
+    public float gravity = 0f;
 
     float rotationTime = 0;
     public float maxTime = 0.4f;
@@ -37,6 +37,9 @@ public class BoatMovement : MonoBehaviour {
     public ParticleSystem smoke;
     public ParticleSystem ember;
     public bool lookUp;
+    public Vector3 moveVector; // Vector used for current frame of movement
+
+    public float grav;
 
 
 
@@ -126,7 +129,9 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        Vector3 moveVector; // Vector used for current frame of movement
+        Debug.Log("SPEED: " + speed);
+        Debug.Log("MAGNITUDE: " + moveVector.magnitude);
+        Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
@@ -191,7 +196,10 @@ public class BoatMovement : MonoBehaviour {
 
     private Vector3 applyGravity(Vector3 movement) {
         if (!characterController.isGrounded) {
+            gravity += grav;
             movement.y -= gravity;
+        } else {
+            gravity = 0f;
         }
         return movement;
     }
