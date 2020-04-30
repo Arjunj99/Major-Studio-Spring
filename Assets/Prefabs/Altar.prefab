@@ -73,8 +73,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.686874, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 5
+  m_Range: 40
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4944,6 +4944,7 @@ MonoBehaviour:
   speed: 1
   ps: {fileID: 7606530929429022073}
   firstTime: 0
+  pointLight: {fileID: 8207042199995376287}
 --- !u!65 &3999609444485260569
 BoxCollider:
   m_ObjectHideFlags: 0
