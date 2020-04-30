@@ -11,7 +11,7 @@ public class LanternSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         for (int i = 0; i < numOfLanterns; i++) {
-            Instantiate(lanternPrefab, new Vector3(Random.Range(-zone.x, zone.x), Random.Range(-zone.y, zone.y), Random.Range(-zone.z, zone.z)), Quaternion.identity);
+            Instantiate(lanternPrefab, this.transform.position + new Vector3(Random.Range(-zone.x, zone.x), Random.Range(-zone.y, zone.y), Random.Range(-zone.z, zone.z)), Quaternion.identity);
         }
     }
 
