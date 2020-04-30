@@ -176,11 +176,11 @@ MonoBehaviour:
   delay: 0.1
   speed: 0.5
   deltaScale: {x: 0.2, y: 0.2, z: 0.2}
-  onHover: 29
-  offHover: 30
+  onHover: 32
+  offHover: 32
   onClickScale: {x: 0, y: 0, z: 0}
   deltaPosition: {x: 0, y: 0, z: 0}
-  onClick: 30
+  onClick: 31
   onClickMove: 30
 --- !u!114 &185140107
 MonoBehaviour:
@@ -327,12 +327,12 @@ MonoBehaviour:
   delay: 0.1
   speed: 0.5
   deltaScale: {x: 0.2, y: 0.2, z: 0.2}
-  onHover: 29
-  offHover: 30
+  onHover: 32
+  offHover: 32
   onClickScale: {x: 0, y: 0, z: 0}
   deltaPosition: {x: 0, y: 0, z: 0}
-  onClick: 30
-  onClickMove: 30
+  onClick: 19
+  onClickMove: 0
 --- !u!114 &239093285
 MonoBehaviour:
   m_ObjectHideFlags: 0

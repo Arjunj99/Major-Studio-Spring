@@ -12,6 +12,10 @@ public class Lantern : MonoBehaviour {
     public float amplitude, speed;
     public ParticleSystem ps;
     public bool firstTime = false;
+    public Light pointLight;
+    public float maxBrightness = 60;
+    public AudioSource audioSource;
+    public AudioClip burnClip;
 
 
     // Start is called before the first frame update
@@ -29,9 +33,11 @@ public class Lantern : MonoBehaviour {
     }
 
     public IEnumerator raiseTop() {
+        audioSource.PlayOneShot(burnClip);
         for (int i = 0;  i < 30; i++) {
             top.transform.localPosition = Vector3.Lerp(top.transform.localPosition, bottom.transform.localPosition + displacement, Time.deltaTime);
             ps.emissionRate = Mathf.Lerp(ps.emissionRate, 30f, Time.deltaTime);
+            pointLight.intensity = Mathf.Lerp(pointLight.intensity, maxBrightness, Time.deltaTime * 3f);
             // top.transform.position += top.transform.up * 0.05f;
             // top.transform.Rotate(Vector3.up * 1f);
             yield return 0;
