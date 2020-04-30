@@ -409,6 +409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &87033119 stripped
@@ -536,6 +541,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &164251001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -798,6 +819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (4)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &178362662 stripped
@@ -859,8 +885,8 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 8ae79fc5752bc4d558f0e34b125d7fac, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
+  m_TreeDistance: 300
+  m_TreeBillboardDistance: 600
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
@@ -941,6 +967,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b44f72f1d26040cf90388772d8cfb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberRange: {x: 20, y: 40}
+  boidSeperationRange: {x: 10, y: 30}
+  alignmentRange: {x: 0.1, y: 0.3}
+  coheseionRange: {x: 0.2, y: 0.4}
+  seperationRange: {x: 0.05, y: 0.25}
+  targetSeekRange: {x: 0.2, y: 0.4}
+  delayRange: {x: 15, y: 30}
+  boidBrain: []
 --- !u!1001 &239203065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1452,6 +1486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &281270090 stripped
@@ -1779,6 +1818,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &422216133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2502,6 +2557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (5)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &459605781 stripped
@@ -2889,6 +2949,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &530670459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3453,6 +3529,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &640228212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3519,6 +3611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -3831,6 +3928,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1 &697027170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3950,6 +4063,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1 &722057348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,6 +4122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &727493485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4200,6 +4345,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &741899230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4802,6 +4963,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90135d6714e5d4545b7c94c088489993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  box: {fileID: 0}
+  currentPos: 0
+  boatMovement: {fileID: 0}
+  rectTransform: {fileID: 0}
+  positions: []
+  increment: 20
+  rotations: []
 --- !u!114 &819766079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5135,6 +5303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &825883767 stripped
@@ -5172,6 +5345,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!4 &844015075
 Transform:
   m_ObjectHideFlags: 0
@@ -6131,6 +6320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (5)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &943624385 stripped
@@ -6553,6 +6747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -7563,6 +7762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (11)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1293418299 stripped
@@ -7923,6 +8127,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &1347905416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8081,6 +8301,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &1366526844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9105,6 +9341,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1 &1520613779
 GameObject:
   m_ObjectHideFlags: 0
@@ -9148,6 +9400,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &1525789985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9531,6 +9799,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &1567559020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9982,6 +10266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (3)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &1613532422 stripped
@@ -10418,6 +10707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (8)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1678504237 stripped
@@ -10578,6 +10872,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (9)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1683299572 stripped
@@ -10640,8 +10939,8 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 22bdd00be1554487ab6e2ad189ae8352, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
+  m_TreeBillboardDistance: 300
+  m_TreeCrossFadeLength: 200
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
@@ -10838,6 +11137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
@@ -12052,6 +12356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (7)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1889360863 stripped
@@ -12257,6 +12566,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (10)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1919618006 stripped
@@ -12374,6 +12688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184679c48227f4f5ebc522392906cf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!114 &1935542933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12411,6 +12727,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff62d9f75284521a6f2af3185c2cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerHeight: 1.7
+  distance: 5
+  offsetFromWall: 0.1
+  maxDistance: 20
+  minDistance: 0.6
+  FOVdampening: 5
+  speedDistance: 5
+  xSpeed: 200
+  ySpeed: 200
+  zoomRate: 40
+  yMinLimit: -40
+  yMaxLimit: 80
+  rotationDampening: 3
+  zoomDampening: 5
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  cameraRotation: {x: 0, y: 0, z: 0}
+  inMotion: 0
+  xDeg: 0
+  yDeg: 0
+  controller: 1
+  maxframes: 10
+  currentFrames: 0
 --- !u!114 &1935542936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12811,6 +13152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swamp_shack (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
 --- !u!4 &1967664242 stripped
@@ -12906,6 +13252,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &2021838778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13674,6 +14036,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6899b58d6d68344cda7bcd2677d50444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 0}
+  boidList: []
+  numOfBoids: 0
+  boidSeperationDifference: 1
+  alignmentValue: 0
+  cohesionValue: 0
+  seperationValue: 0
+  targetSeekValue: 0
+  alignmentRange: 0
+  cohesionRange: 0
+  seperationRange: 0
+  targetSeekRange: 0
+  deltaTransform: {x: 0, y: 0, z: 0}
+  delay: 0
+  delayTime: 0
+  inter: 0.2
 --- !u!1001 &2076505163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14068,6 +14446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: swampTorch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78e1691e3bf117f47939122d8e275547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1691e3bf117f47939122d8e275547, type: 3}
 --- !u!4 &2120532031 stripped
@@ -14142,6 +14525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swamp_shack
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 90f2a258562814e4bbf2457a05952d99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2a258562814e4bbf2457a05952d99, type: 3}
