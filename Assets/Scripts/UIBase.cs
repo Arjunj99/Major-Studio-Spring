@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     [Header ("General Settings")]
@@ -48,9 +49,15 @@ public class UIBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
             LeanTween.scale(gameObject, offHoverScale, speed).setDelay(delay).setEase(offHover);
     }
 
+    public void OnClick(string scene) {
+        LeanTween.scale(gameObject, onClickScale, speed).setDelay(delay).setEase(onClick);
+        SceneManager.LoadScene(scene);
+        beenClicked = true;
+    }
+
     public void OnClick() {
         LeanTween.scale(gameObject, onClickScale, speed).setDelay(delay).setEase(onClick);
-        // LeanTween.move(gameObject, deltaPosition, speed).setDelay(delay).setEase(onClickMove);
+        Application.Quit();
         beenClicked = true;
     }
 }
