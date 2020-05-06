@@ -16,6 +16,7 @@ public class Lantern : MonoBehaviour {
     public float maxBrightness = 60;
     public AudioSource audioSource;
     public AudioClip burnClip;
+    public LanternManager lanternManager;
 
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class Lantern : MonoBehaviour {
 
     public IEnumerator raiseTop() {
         audioSource.PlayOneShot(burnClip);
+        lanternManager.totalLanterns--;
         for (int i = 0;  i < 30; i++) {
             top.transform.localPosition = Vector3.Lerp(top.transform.localPosition, bottom.transform.localPosition + displacement, Time.deltaTime);
             ps.emissionRate = Mathf.Lerp(ps.emissionRate, 30f, Time.deltaTime);
