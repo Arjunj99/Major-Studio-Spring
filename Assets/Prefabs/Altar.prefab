@@ -5043,6 +5043,7 @@ MonoBehaviour:
   maxBrightness: 100
   audioSource: {fileID: 252417325709461992}
   burnClip: {fileID: 8300000, guid: 2de774ffd497442159d60fe3f699eaef, type: 3}
+  lanternManager: {fileID: 0}
 --- !u!65 &3999609444485260569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5326,7 +5327,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a78d98f8764cc41929c4c35fa2b2ebc9, type: 2}
+      objectReference: {fileID: 2100000, guid: 71747999940cd2c49a39d79c20ae312b, type: 2}
     - target: {fileID: -1504981713932161579, guid: d9eebff64eb464df8b65fff5594a0f7f,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
@@ -5533,7 +5534,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a78d98f8764cc41929c4c35fa2b2ebc9, type: 2}
+      objectReference: {fileID: 2100000, guid: 71747999940cd2c49a39d79c20ae312b, type: 2}
     - target: {fileID: -1504981713932161579, guid: 78e1691e3bf117f47939122d8e275547,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

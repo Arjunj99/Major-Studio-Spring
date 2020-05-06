@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bob : MonoBehaviour {
     public float bobAngle;
     public float bobSpeed;
-    public BoatMovement boatMovement;
+    //public BoatMovement boatMovement;
 
     // Start is called before the first frame update
     void Start()
