@@ -240,8 +240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4888777744942497465}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2.79, z: -0}
-  m_LocalScale: {x: 1.4750328, y: 1.4750328, z: 1.4750328}
+  m_LocalPosition: {x: 0, y: 2.5, z: -0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children: []
   m_Father: {fileID: 6612951539527733703}
   m_RootOrder: 2
@@ -5032,7 +5032,7 @@ MonoBehaviour:
   top: {fileID: 8438498696382659323}
   bottom: {fileID: 1555234647397214942}
   boxCollider: {fileID: 3999609444485260569}
-  displacement: {x: 0, y: 2, z: 0}
+  displacement: {x: 0, y: 2.5, z: 0}
   discovered: 0
   bob: 0
   amplitude: 0.1
@@ -5040,7 +5040,7 @@ MonoBehaviour:
   ps: {fileID: 7606530929429022073}
   firstTime: 0
   pointLight: {fileID: 8207042199995376287}
-  maxBrightness: 60
+  maxBrightness: 100
   audioSource: {fileID: 252417325709461992}
   burnClip: {fileID: 8300000, guid: 2de774ffd497442159d60fe3f699eaef, type: 3}
 --- !u!65 &3999609444485260569
