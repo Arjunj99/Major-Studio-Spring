@@ -4719,7 +4719,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b3de479545d104cd8ba2dfec1643bfa6, type: 2}
-  - {fileID: 2100000, guid: dbeb724226a344d658ce1f2db27d3cc4, type: 2}
+  - {fileID: 2100000, guid: a40b07d43af004843a99c09f05cb005c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4774,7 +4774,8 @@ GameObject:
   - component: {fileID: 1817462568065273386}
   - component: {fileID: 7233882903817925660}
   - component: {fileID: 3990016954958956773}
-  - component: {fileID: 7586659199300633241}
+  - component: {fileID: 5134439114322831171}
+  - component: {fileID: 3773638855412751442}
   m_Layer: 0
   m_Name: RiverLantern (1)
   m_TagString: Untagged
@@ -4823,8 +4824,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe75dfda668fa4839b0fe39912d2eb66, type: 2}
-  - {fileID: 2100000, guid: ddf310051ae2f2341a8059bb6a675d09, type: 2}
+  - {fileID: 2100000, guid: 723feee48f4f51043890203f9a97e172, type: 2}
+  - {fileID: 2100000, guid: 8c4edb4b4be694543a38d7b435508732, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4845,7 +4846,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7586659199300633241
+--- !u!65 &5134439114322831171
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414772277908044857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 10, z: 1}
+  m_Center: {x: -0.00021625962, y: 0.030004088, z: -0.0001335796}
+--- !u!114 &3773638855412751442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4854,10 +4868,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3414772277908044857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5e4f4776389f4bb8858ec47068c82e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 428300d7efbb34856adb5332eb08d96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
+  off: {fileID: 2100000, guid: 8c4edb4b4be694543a38d7b435508732, type: 2}
+  on: {fileID: 2100000, guid: 71747999940cd2c49a39d79c20ae312b, type: 2}
+  yAxis: 0
   speed: 1
   amp: 1
   delay: 0
+  fire: {fileID: 7991107080307536153}
