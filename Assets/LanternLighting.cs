@@ -7,7 +7,7 @@ public class LanternLighting : MonoBehaviour {
     public Material on;
     Renderer rend;
     private float time;
-    private bool turnedOn = false;
+    public bool turnedOn = false;
     public float yAxis = 0;
     public float speed;
     public float amp;
