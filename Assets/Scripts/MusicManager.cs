@@ -8,8 +8,8 @@ public class MusicManager : MonoBehaviour {
     public AudioSource festival;
     public enum AudioSourceType {peace, tense, festival};
     public AudioSourceType currentType;
-    public int maxMusic = 1;
-    public int speedMod = 2;
+    public float maxMusic = 1;
+    public float speedMod = 2;
 
 
 

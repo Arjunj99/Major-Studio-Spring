@@ -13,13 +13,14 @@ public class LanternManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         totalLanterns = lanternList.Count;
+        endPos = bridge.transform.position - endPos;
     }
 
     // Update is called once per frame
     void Update() {
         lanternText.text = totalLanterns.ToString();
 
-        if (totalLanterns == 0 && hasLowered) {
+        if (totalLanterns == 0 && !hasLowered) {
             hasLowered = true;
             lanternText.text = "";
             StartCoroutine(lowerBridgeAnimation());
