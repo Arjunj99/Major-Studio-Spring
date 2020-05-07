@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - _EmissionLM: 1
     - _WaterScrollSpeed: -0.025
-    - _WaveAmplitude: 0.005
-    - _WaveFrequency: 1
+    - _WaveAmplitude: 0.001
+    - _WaveFrequency: 4
     m_Colors:
     - _Illumi: {r: 1, g: 1, b: 1, a: 1}
