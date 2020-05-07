@@ -35,7 +35,7 @@ public class CreditsManager : MonoBehaviour {
         text.text = creditText[i];
         var seq = LeanTween.sequence();
         seq.append(LeanTween.alpha(backGround.gameObject.GetComponent<RectTransform>(), 0f, 2).setEase(tweenType));
-        seq.append(LeanTween.alpha(backGround.gameObject.GetComponent<RectTransform>(), 1f, 2).setEase(tweenType).setOnComplete(RunCredits));
+        seq.append(LeanTween.alpha(backGround.gameObject.GetComponent<RectTransform>(), 1f, 2).setEase(tweenType).setDelay(6f).setOnComplete(RunCredits));
 
 
         // var seq = LeanTween.sequence();
