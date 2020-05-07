@@ -40,37 +40,45 @@ public class CameraController : MonoBehaviour {
     public int maxframes = 10;
     public int currentFrames = 0;
     float tempLerp;
+    public Vector3 finalPosition;
+    public Vector3 finalRotation;
+    public float finalMod = 6f;
 
     void Start () { transform.rotation = player.transform.rotation; Debug.Log(player.transform.rotation.eulerAngles); setUpCameraRotation(); tempLerp = minDistance;  }
  
     void LateUpdate () {
-        cameraRotation = new Vector3(gameObject.transform.localRotation.eulerAngles.x, gameObject.transform.localRotation.eulerAngles.y, gameObject.transform.localRotation.eulerAngles.z);
+        if (!player.GetComponent<BoatMovement>().cutscene) {
+            cameraRotation = new Vector3(gameObject.transform.localRotation.eulerAngles.x, gameObject.transform.localRotation.eulerAngles.y, gameObject.transform.localRotation.eulerAngles.z);
 
-        Vector3 vTargetOffset, position; Quaternion rotation;
-        if (!player) { return; }
-        mouseInput();
-        scrollInput();
+            Vector3 vTargetOffset, position; Quaternion rotation;
+            if (!player) { return; }
+            mouseInput();
+            scrollInput();
 
-        // if (xDeg > 360) { xDeg -= 360f; }
-        // else if (xDeg < 0) { xDeg += 360f; }
+            // if (xDeg > 360) { xDeg -= 360f; }
+            // else if (xDeg < 0) { xDeg += 360f; }
 
-        rotation = Quaternion.Euler(yDeg, xDeg, 0);
-        vTargetOffset = new Vector3 (0, -playerHeight, 0);
-        position = player.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
-        handleCameraCollision(vTargetOffset, position, rotation);
-        setCamera(rotation, position);
-
-
-        // if (Input.GetKeyDown(KeyCode.LeftShift)) {
-        //     controller = !controller;
-        // }
+            rotation = Quaternion.Euler(yDeg, xDeg, 0);
+            vTargetOffset = new Vector3 (0, -playerHeight, 0);
+            position = player.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
+            handleCameraCollision(vTargetOffset, position, rotation);
+            setCamera(rotation, position);
 
 
-        tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("SteamBoat").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
-        gameObject.GetComponent<Camera>().fieldOfView = tempLerp;
-        // Debug.Log(tempLerp);
-        // minDistance = tempLerp;
-        // maxDistance = tempLerp;
+            // if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            //     controller = !controller;
+            // }
+
+
+            tempLerp = Mathf.Lerp(tempLerp, (GameObject.Find("SteamBoat").GetComponent<BoatMovement>().boat.GetCurrentSpeed()) + 60, 0.1f); 
+            gameObject.GetComponent<Camera>().fieldOfView = tempLerp;
+            // Debug.Log(tempLerp);
+            // minDistance = tempLerp;
+            // maxDistance = tempLerp;
+        } else {
+            this.transform.position = Vector3.Lerp(transform.position, finalPosition, Time.deltaTime/finalMod);
+            this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(finalRotation), Time.deltaTime/finalMod);
+        }
     }
  
     private static float ClampAngle (float angle, float min, float max) {

@@ -71,6 +71,7 @@ public class FinalLanternSpawner : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             StartCoroutine(RaiseAllLanters());
+            other.GetComponent<BoatMovement>().cutscene = true;
         }
     }
 }
