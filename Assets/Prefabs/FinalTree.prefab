@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71747999940cd2c49a39d79c20ae312b, type: 2}
+  - {fileID: 2100000, guid: 8c4edb4b4be694543a38d7b435508732, type: 2}
   - {fileID: 2100000, guid: 723feee48f4f51043890203f9a97e172, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14379,6 +14379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6124947797191275266}
   - component: {fileID: 551903899835333866}
+  - component: {fileID: 331966142}
   m_Layer: 0
   m_Name: FinalTree
   m_TagString: Untagged
@@ -14393,9 +14394,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7159446088958820625}
-  m_LocalRotation: {x: -5.101693e-17, y: 0.9879491, z: 6.9971936e-17, w: 0.15477937}
+  m_LocalRotation: {x: 0, y: 0.9879491, z: 0, w: 0.15477946}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 48.754894, y: 25.176973, z: 48.754894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7520471883164314338}
   - {fileID: 1269647291563419609}
@@ -14412,8 +14413,32 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7159446088958820625}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.6711085, y: 5.2566195, z: 4.148537}
   m_Center: {x: 1.3355536, y: -0.80118334, z: 0.14005916}
+--- !u!114 &331966142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159446088958820625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcea8b310599440db8d2707ad3eb01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanternPrefab: {fileID: 3414772277908044857, guid: ee815e4beab9bd34781fb7ece93d005a,
+    type: 3}
+  radius: {x: 70, y: 100}
+  thethas: {x: 0, y: 360}
+  lanterns: []
+  off: {fileID: 2100000, guid: 8c4edb4b4be694543a38d7b435508732, type: 2}
+  on: {fileID: 2100000, guid: 71747999940cd2c49a39d79c20ae312b, type: 2}
+  rend: {fileID: 3104802466653157628}
+  fire: {fileID: 456516154676390530}
+  smoke: {fileID: 1030200264826408580}
+  embers: {fileID: 2795013138201651865}
+  creditsManager: {fileID: 0}
