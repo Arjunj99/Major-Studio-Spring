@@ -18,22 +18,25 @@ public class PauseMenu : MonoBehaviour {
     void Start() {
         retry = retryButton.transform.localScale;
         quit = quitButton.transform.localScale;
+        retryButton.transform.localScale = Vector3.zero;
+        quitButton.transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             PauseScreen();
+            pause = !pause;
         }
     }
 
     void PauseScreen() {
         if (!pause) {
             LeanTween.scale(retryButton, retry, speed).setEase(easeIn);
-            LeanTween.scale(quitButton, quit, speed).setDelay(0.5f).setEase(easeIn);
+            LeanTween.scale(quitButton, quit, speed).setDelay(speed/2).setEase(easeIn);
         } else {
             LeanTween.scale(retryButton, Vector3.zero, speed).setEase(easeOut);
-            LeanTween.scale(quitButton, Vector3.zero, speed).setDelay(0.5f).setEase(easeOut);
+            LeanTween.scale(quitButton, Vector3.zero, speed).setDelay(speed/2).setEase(easeOut);
         }
     }
 }
