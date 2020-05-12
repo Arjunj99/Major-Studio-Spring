@@ -40,6 +40,10 @@ public class BoatMovement : MonoBehaviour {
     public Vector3 moveVector; // Vector used for current frame of movement
 
     public float grav;
+    public bool cutscene;
+    public Vector3 finalPosition;
+    public Vector3 finalRotation;
+    public float finalMod = 6f;
 
 
 
@@ -47,28 +51,28 @@ public class BoatMovement : MonoBehaviour {
     /// <summary> Checks for any Forward Input. </summary>
     /// <return> Returns true if there is currently a forward input. False if not. </return>
     public bool isForward() {
-        if (Input.GetKey(forward) || (Input.GetAxis("Vertical") > 0f)) { return true; } 
+        if (Input.GetKey(forward) || (Input.GetAxis("Vertical") > 0f) || Input.GetKey(KeyCode.UpArrow)) { return true; } 
         else { return false; }
     }
 
     /// <summary> Checks for any Right Input. </summary>
     /// <return> Returns true if there is currently a right input. False if not. </return>
     public bool isRight() {
-        if (Input.GetKey(right) || (Input.GetAxis("Horizontal") > 0f)) { return true; } 
+        if (Input.GetKey(right) || (Input.GetAxis("Horizontal") > 0f) || Input.GetKey(KeyCode.RightArrow)) { return true; } 
         else { return false; }
     }
 
     /// <summary> Checks for any Left Input. </summary>
     /// <return> Returns true if there is currently a left input. False if not. </return>
     public bool isleft() {
-        if (Input.GetKey(left) || (Input.GetAxis("Horizontal") < 0f)) { return true; } 
+        if (Input.GetKey(left) || (Input.GetAxis("Horizontal") < 0f) || Input.GetKey(KeyCode.LeftArrow)) { return true; } 
         else { return false; }
     }
 
     /// <summary> Checks for any Back Input. </summary>
     /// <return>  Returns true if there is currently a back input. False if not. </return>
     public bool isBack() {
-        if (Input.GetKey(back) || (Input.GetAxis("Vertical") < 0f)) { return true; } 
+        if (Input.GetKey(back) || (Input.GetAxis("Vertical") < 0f) || Input.GetKey(KeyCode.DownArrow)) { return true; } 
         else { return false; }
     }
 
@@ -81,38 +85,43 @@ public class BoatMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
-        ApplyDragToBoat(deacceleration);
-        UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
-        UpdateRotation(rotationLerpSpeed, rotationVal);
+        if (!cutscene) {
+            MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
+            ApplyDragToBoat(deacceleration);
+            UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
+            UpdateRotation(rotationLerpSpeed, rotationVal);
 
-        water.emissionRate = Mathf.Lerp(water.emissionRate, waterArr[levelSpeed + 1], Time.deltaTime);
-        smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, smokeArr[levelSpeed + 1], Time.deltaTime);
-        ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
-
-
-
+            water.emissionRate = Mathf.Lerp(water.emissionRate, waterArr[levelSpeed + 1], Time.deltaTime);
+            smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, smokeArr[levelSpeed + 1], Time.deltaTime);
+            ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
 
 
 
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            lookUp = true;
+
+
+
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                lookUp = true;
+            } else {
+                lookUp = false;
+            }
+
+            if (lookUp) {
+                cam.playerHeight = Mathf.Lerp(cam.playerHeight, 13, Time.deltaTime);
+                cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, -30, Time.deltaTime);
+                cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, -30, Time.deltaTime);
+            } else {
+                cam.playerHeight = Mathf.Lerp(cam.playerHeight, 7, Time.deltaTime);
+                cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, 10, Time.deltaTime);
+                cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, 10, Time.deltaTime);
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
         } else {
-            lookUp = false;
+            this.transform.position = Vector3.Lerp(transform.position, finalPosition, Time.deltaTime/finalMod);
+            this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(finalRotation), Time.deltaTime/finalMod);
         }
-
-        if (lookUp) {
-            cam.playerHeight = Mathf.Lerp(cam.playerHeight, 13, Time.deltaTime);
-            cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, -30, Time.deltaTime);
-            cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, -30, Time.deltaTime);
-        } else {
-            cam.playerHeight = Mathf.Lerp(cam.playerHeight, 7, Time.deltaTime);
-            cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, 10, Time.deltaTime);
-            cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, 10, Time.deltaTime);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
     }
 
     /// <summary> Initializes a new Boat Object. This GameObject requires a Character Controller Component. </summary>
