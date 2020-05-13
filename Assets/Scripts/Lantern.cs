@@ -17,6 +17,7 @@ public class Lantern : MonoBehaviour {
     public AudioSource audioSource;
     public AudioClip burnClip;
     public LanternManager lanternManager;
+    public AudioSource musicManager;
 
 
     // Start is called before the first frame update
@@ -29,12 +30,13 @@ public class Lantern : MonoBehaviour {
     void Update() {
         if (bob) {
             top.transform.localPosition = new Vector3(0f, Mathf.Sin(Time.time * speed) * amplitude, 0f) + displacement;
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 1f, Time.deltaTime);
         }
         
     }
 
     public IEnumerator raiseTop() {
-        audioSource.PlayOneShot(burnClip);
+        musicManager.PlayOneShot(burnClip);
         lanternManager.totalLanterns--;
         for (int i = 0;  i < 30; i++) {
             top.transform.localPosition = Vector3.Lerp(top.transform.localPosition, bottom.transform.localPosition + displacement, Time.deltaTime);

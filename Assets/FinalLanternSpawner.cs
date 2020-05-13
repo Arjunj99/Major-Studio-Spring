@@ -16,6 +16,7 @@ public class FinalLanternSpawner : MonoBehaviour {
     public ParticleSystem smoke;
     public ParticleSystem embers;
     public CreditsManager creditsManager;
+    public MusicManager musicManager;
 
     // Start is called before the first frame update
     void Start() {
@@ -59,8 +60,11 @@ public class FinalLanternSpawner : MonoBehaviour {
 
     public IEnumerator RaiseAllLanters() {
         turnedOn = true;
+        musicManager.currentType = MusicManager.AudioSourceType.end;
+        musicManager.end.PlayScheduled(0);
         for (int i = 0; i < lanterns.Count; i++) {
             lanterns[i].turnedOn = true;
+            musicManager.end.volume = Mathf.Lerp(musicManager.end.volume, 1f, Time.deltaTime);
             yield return new WaitForSeconds(0.001f);
         }
 
