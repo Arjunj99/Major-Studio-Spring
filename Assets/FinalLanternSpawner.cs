@@ -65,7 +65,7 @@ public class FinalLanternSpawner : MonoBehaviour {
         for (int i = 0; i < lanterns.Count; i++) {
             lanterns[i].turnedOn = true;
             musicManager.end.volume = Mathf.Lerp(musicManager.end.volume, 1f, Time.deltaTime);
-            yield return new WaitForSeconds(0.001f);
+            yield return new WaitForSeconds(0.045f);
         }
 
         // yield return new WaitForSeconds(5f);
