@@ -84,7 +84,7 @@ public class BoatMovement : MonoBehaviour {
     } 
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         if (!cutscene) {
             MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
             ApplyDragToBoat(deacceleration);
