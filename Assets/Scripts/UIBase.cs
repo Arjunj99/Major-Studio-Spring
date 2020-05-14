@@ -26,11 +26,14 @@ public class UIBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public LeanTweenType onClick = LeanTweenType.easeOutElastic;
     public LeanTweenType onClickMove = LeanTweenType.easeOutElastic;
 
+    public GameObject menuTransitions;
+
     // Start is called before the first frame update
     void Start() {
         offHoverScale = transform.localScale;
         onHoverScale = offHoverScale + deltaScale;
         onClickPosition = transform.position + deltaPosition;
+        menuTransitions.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,14 +53,22 @@ public class UIBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     }
 
     public void OnClick(string scene) {
-        LeanTween.scale(gameObject, onClickScale, speed).setDelay(delay).setEase(onClick);
-        SceneManager.LoadScene(scene);
+        // LeanTween.scale(gameObject, onClickScale, speed).setDelay(delay).setEase(onClick);
+        menuTransitions.SetActive(true);
+        menuTransitions.GetComponent<MenuStart>().buffer = true;
+        menuTransitions.GetComponent<MenuStart>().quit = false;
+        // GameObject end = Instantiate(menuTransitions, Vector3.zero, Quaternion.identity);
+        // end.GetComponent<MenuStart>().quit = false;
+        // SceneManager.LoadScene(scene);
         beenClicked = true;
     }
 
     public void OnClick() {
-        LeanTween.scale(gameObject, onClickScale, speed).setDelay(delay).setEase(onClick);
-        Application.Quit();
+        // LeanTween.scale(gameObject, onClickScale, speed).setDelay(delay).setEase(onClick);
+        menuTransitions.SetActive(true);
+        menuTransitions.GetComponent<MenuStart>().buffer = true;
+        menuTransitions.GetComponent<MenuStart>().quit = true;
+        // Application.Quit();
         beenClicked = true;
     }
 }

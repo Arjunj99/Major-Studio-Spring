@@ -17,6 +17,7 @@ public class FinalLanternSpawner : MonoBehaviour {
     public ParticleSystem embers;
     public CreditsManager creditsManager;
     public MusicManager musicManager;
+    public PauseMenu pauseMenu;
 
     // Start is called before the first frame update
     void Start() {
@@ -45,7 +46,6 @@ public class FinalLanternSpawner : MonoBehaviour {
             smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, 20f, Time.deltaTime/24);
             embers.emissionRate = Mathf.Lerp(embers.emissionRate, 20f, Time.deltaTime/24);
 
-
             rend.materials[0].Lerp(off, on, time);            
         }
     }
@@ -59,6 +59,7 @@ public class FinalLanternSpawner : MonoBehaviour {
     }
 
     public IEnumerator RaiseAllLanters() {
+        pauseMenu.canPause = false;
         turnedOn = true;
         musicManager.currentType = MusicManager.AudioSourceType.end;
         musicManager.end.PlayScheduled(0);
