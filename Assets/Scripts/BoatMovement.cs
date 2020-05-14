@@ -51,7 +51,7 @@ public class BoatMovement : MonoBehaviour {
     /// <summary> Checks for any Forward Input. </summary>
     /// <return> Returns true if there is currently a forward input. False if not. </return>
     public bool isForward() {
-        if (Input.GetKey(forward) || (Input.GetAxis("Vertical") > 0f) || Input.GetKey(KeyCode.UpArrow)) { return true; } 
+        if (Input.GetKeyDown(forward) || (Input.GetAxis("Vertical") > 0f) || Input.GetKeyDown(KeyCode.UpArrow)) { return true; } 
         else { return false; }
     }
 
@@ -72,7 +72,7 @@ public class BoatMovement : MonoBehaviour {
     /// <summary> Checks for any Back Input. </summary>
     /// <return>  Returns true if there is currently a back input. False if not. </return>
     public bool isBack() {
-        if (Input.GetKey(back) || (Input.GetAxis("Vertical") < 0f) || Input.GetKey(KeyCode.DownArrow)) { return true; } 
+        if (Input.GetKeyDown(back) || (Input.GetAxis("Vertical") < 0f) || Input.GetKeyDown(KeyCode.DownArrow)) { return true; } 
         else { return false; }
     }
 
@@ -85,6 +85,8 @@ public class BoatMovement : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (Input.GetKeyDown(KeyCode.W)) { Debug.Log("checkmate");}
+
         if (!cutscene) {
             MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
             ApplyDragToBoat(deacceleration);
@@ -138,9 +140,9 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        Debug.Log("SPEED: " + speed);
-        Debug.Log("MAGNITUDE: " + moveVector.magnitude);
-        Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
+        // Debug.Log("SPEED: " + speed);
+        // Debug.Log("MAGNITUDE: " + moveVector.magnitude);
+        // Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
@@ -164,8 +166,8 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="acceleration"> Acceleration of the Boat. </param>
     private void UpdateCurrentSpeed(float maxSpeed, float acceleration) {
         // Adjust speed
-        if ((Input.GetButtonDown("joystick button 5") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && levelSpeed < 2) { levelSpeed += 1; } 
-        if ((Input.GetButtonDown("joystick button 4") || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && levelSpeed > -1) { levelSpeed -= 1; }
+        if (Input.GetKeyDown(KeyCode.W) && levelSpeed < 2) { /*levelSpeed += 1;*/ Debug.Log("W"); } 
+        if (isBack() && levelSpeed > -1) { levelSpeed -= 1; Debug.Log("S"); }
 
         boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), speeds[levelSpeed + 1], Time.deltaTime));
         

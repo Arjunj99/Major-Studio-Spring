@@ -2424,6 +2424,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &256412011 stripped
@@ -5436,6 +5441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &397568616 stripped
@@ -6242,6 +6252,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &451670561 stripped
@@ -6939,6 +6954,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &509313112 stripped
@@ -16012,6 +16032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &866396441 stripped
@@ -16560,6 +16585,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &916047250 stripped
@@ -19365,6 +19395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &1195494708 stripped
@@ -19666,6 +19701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &1246407904 stripped
@@ -20517,6 +20557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &1349906836 stripped
@@ -20692,6 +20737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &1356504754 stripped
@@ -26975,6 +27025,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &1462849480 stripped
@@ -30375,6 +30430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734019161368383885, guid: 7bc7b7056e5e448ec893f6e073cef3db,
+        type: 3}
+      propertyPath: lanternManager
+      value: 
+      objectReference: {fileID: 1931343533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc7b7056e5e448ec893f6e073cef3db, type: 3}
 --- !u!114 &1548573236 stripped
@@ -38636,7 +38696,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1257398500, guid: 0c968164f8a684eca94c75fea39cbaaa, type: 3}
       propertyPath: simulationSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1954264680738305694, guid: 0c968164f8a684eca94c75fea39cbaaa,
         type: 3}
