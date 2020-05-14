@@ -38697,6 +38697,11 @@ PrefabInstance:
       propertyPath: lanternList.Array.data[22]
       value: 
       objectReference: {fileID: 916047250}
+    - target: {fileID: 6403023575787459247, guid: be71cbf0ee25948b8a7d4f9509592f80,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6843484760123082969, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
       propertyPath: m_Mesh

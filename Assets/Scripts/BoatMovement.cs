@@ -44,7 +44,7 @@ public class BoatMovement : MonoBehaviour {
     public Vector3 finalPosition;
     public Vector3 finalRotation;
     public float finalMod = 6f;
-
+    public bool isChanging;
 
 
 
@@ -138,9 +138,9 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        Debug.Log("SPEED: " + speed);
-        Debug.Log("MAGNITUDE: " + moveVector.magnitude);
-        Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
+        // Debug.Log("SPEED: " + speed);
+        // Debug.Log("MAGNITUDE: " + moveVector.magnitude);
+        // Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
@@ -164,9 +164,30 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="maxSpeed"> Max speed of the Boat. </param>
     /// <param name="acceleration"> Acceleration of the Boat. </param>
     private void UpdateCurrentSpeed(float maxSpeed, float acceleration) {
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)) {
+            isChanging = false;
+        }
+
+
         // Adjust speed
-        if ((Input.GetButtonDown("joystick button 5") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && levelSpeed < 2) { levelSpeed += 1; } 
-        if ((Input.GetButtonDown("joystick button 4") || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && levelSpeed > -1) { levelSpeed -= 1; }
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && levelSpeed < 2) {
+            if (!isChanging) {
+                // Debug.Log("W");
+                levelSpeed += 1; 
+                isChanging = true;
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && levelSpeed > -1) {
+            if (!isChanging) {
+                // Debug.Log("W");
+                levelSpeed -= 1; 
+                isChanging = true;
+            }
+        }
+
+
+        // if ((Input.GetButtonDown("joystick button 4") || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && levelSpeed > -1) { levelSpeed -= 1; }
 
         boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), speeds[levelSpeed + 1], Time.deltaTime));
         
