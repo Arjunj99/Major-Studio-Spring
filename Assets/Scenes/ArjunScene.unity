@@ -2940,6 +2940,7 @@ GameObject:
   - component: {fileID: 338703052}
   - component: {fileID: 338703051}
   - component: {fileID: 338703050}
+  - component: {fileID: 338703053}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -3075,6 +3076,7 @@ MonoBehaviour:
   peace: {fileID: 338703048}
   tense: {fileID: 338703052}
   festival: {fileID: 338703051}
+  end: {fileID: 338703053}
   currentType: 0
   maxMusic: 1
   speedMod: 0.5
@@ -3187,6 +3189,102 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 2748a28e2d5814187ab77052e639d720, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &338703053
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338703047}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ffe6b15872f2a4947833973793bd68f9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25410,6 +25508,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2313530526164655896, guid: 290ac90054145f74896accb13fabaeec,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2426f1141734eff4d99051a74e5ee7cd, type: 2}
     - target: {fileID: 2475456119095340661, guid: 290ac90054145f74896accb13fabaeec,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -35848,7 +35951,7 @@ PrefabInstance:
     - target: {fileID: 4747378130900518563, guid: 0c968164f8a684eca94c75fea39cbaaa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 658.4
+      value: -1142
       objectReference: {fileID: 0}
     - target: {fileID: 4747378130900518563, guid: 0c968164f8a684eca94c75fea39cbaaa,
         type: 3}
@@ -35998,6 +36101,10 @@ PrefabInstance:
       propertyPath: creditsManager
       value: 
       objectReference: {fileID: 2064704487}
+    - target: {fileID: 331966142, guid: f0de63a967815db45a4b9b0226531531, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 338703050}
     - target: {fileID: 551903899835333866, guid: f0de63a967815db45a4b9b0226531531,
         type: 3}
       propertyPath: m_IsTrigger
