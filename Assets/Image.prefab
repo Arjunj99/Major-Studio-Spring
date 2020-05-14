@@ -90,4 +90,5 @@ MonoBehaviour:
   image: {fileID: 7100895860185293236}
   dip: 0.01
   whichOne: 1
-  quit: 0
+  quit: 1
+  buffer: 1
