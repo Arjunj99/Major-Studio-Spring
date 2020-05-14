@@ -21,7 +21,7 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: b9d446712862141c2a6a6c6bf257a550, type: 3}
-        m_Scale: {x: 9, y: 4}
+        m_Scale: {x: 8, y: 8}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 1cfda835094f74a0cb3d71aa7197a6f6, type: 3}
@@ -29,8 +29,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EmissionLM: 1
-    - _WaterScrollSpeed: 0.3
-    - _WaveAmplitude: 0.015
-    - _WaveFrequency: 7
+    - _WaterScrollSpeed: 0.8
+    - _WaveAmplitude: 0.006
+    - _WaveFrequency: 6
     m_Colors:
     - _Illumi: {r: 1, g: 1, b: 1, a: 1}

@@ -12,7 +12,7 @@ public class LanternManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        totalLanterns = lanternList.Count;
+        totalLanterns = lanternList.Count - (int) (lanternList.Count * 0.25f);
         endPos = bridge.transform.position - endPos;
     }
 
@@ -20,7 +20,7 @@ public class LanternManager : MonoBehaviour {
     void Update() {
         lanternText.text = totalLanterns.ToString();
 
-        if (totalLanterns == 0 && !hasLowered) {
+        if (totalLanterns <= 0 && !hasLowered) {
             hasLowered = true;
             lanternText.text = "";
             StartCoroutine(lowerBridgeAnimation());
@@ -28,7 +28,7 @@ public class LanternManager : MonoBehaviour {
     }
 
     public IEnumerator lowerBridgeAnimation() {
-        while (totalLanterns == 0) {
+        while (totalLanterns <= 0) {
             bridge.transform.position = Vector3.Lerp(bridge.transform.position, endPos, Time.deltaTime);
             yield return null;
         }
