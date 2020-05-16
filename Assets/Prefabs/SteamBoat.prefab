@@ -5004,7 +5004,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 289301614986012343, guid: 656a42484ecc89541bff3cf3763d6377, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -5059,7 +5059,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobAngle: 7.14
   bobSpeed: 1
-  boatMovement: {fileID: 6036146147027746251}
 --- !u!1 &5980953717194355082
 GameObject:
   m_ObjectHideFlags: 0
@@ -9818,7 +9817,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 289301614986012343, guid: 656a42484ecc89541bff3cf3763d6377, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -9836,7 +9835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boatMovement: {fileID: 6036146147027746251}
-  multi: 0.5
+  multi: 0.25
 --- !u!1 &8627008582419641520
 GameObject:
   m_ObjectHideFlags: 0
@@ -9934,6 +9933,12 @@ MonoBehaviour:
   smoke: {fileID: 1885182466849753214}
   ember: {fileID: 6232683982166085368}
   lookUp: 0
+  moveVector: {x: 0, y: 0, z: 0}
+  grav: 0
+  cutscene: 0
+  finalPosition: {x: 0, y: 0, z: 0}
+  finalRotation: {x: 0, y: 0, z: 0}
+  finalMod: 6
 --- !u!143 &6524617738933891793
 CharacterController:
   m_ObjectHideFlags: 0

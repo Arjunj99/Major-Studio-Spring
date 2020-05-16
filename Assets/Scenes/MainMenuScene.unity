@@ -841,8 +841,7 @@ MonoBehaviour:
   deltaPosition: {x: 0, y: 0, z: 0}
   onClick: 31
   onClickMove: 30
-  menuTransitions: {fileID: 7100895860185293233, guid: e8e310728085941dab8fb02023048a29,
-    type: 3}
+  menuTransitions: {fileID: 575719195}
 --- !u!114 &909581924
 MonoBehaviour:
   m_ObjectHideFlags: 0

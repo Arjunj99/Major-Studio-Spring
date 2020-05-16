@@ -19,6 +19,7 @@ public class LanternLighting : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        yAxis = transform.position.y + Random.Range(10, 20);
         rend = GetComponent<Renderer>();
         rend.materials[1] = off;
         pos = new Vector3(transform.position.x, yAxis, transform.position.z);
