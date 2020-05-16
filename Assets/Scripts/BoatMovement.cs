@@ -40,35 +40,39 @@ public class BoatMovement : MonoBehaviour {
     public Vector3 moveVector; // Vector used for current frame of movement
 
     public float grav;
-
+    public bool cutscene;
+    public Vector3 finalPosition;
+    public Vector3 finalRotation;
+    public float finalMod = 6f;
+    public bool isChanging;
 
 
 
     /// <summary> Checks for any Forward Input. </summary>
     /// <return> Returns true if there is currently a forward input. False if not. </return>
     public bool isForward() {
-        if (Input.GetKey(forward) || (Input.GetAxis("Vertical") > 0f)) { return true; } 
+        if (Input.GetKey(forward) || (Input.GetAxis("Vertical") > 0f) || Input.GetKey(KeyCode.UpArrow)) { return true; } 
         else { return false; }
     }
 
     /// <summary> Checks for any Right Input. </summary>
     /// <return> Returns true if there is currently a right input. False if not. </return>
     public bool isRight() {
-        if (Input.GetKey(right) || (Input.GetAxis("Horizontal") > 0f)) { return true; } 
+        if (Input.GetKey(right) || (Input.GetAxis("Horizontal") > 0f) || Input.GetKey(KeyCode.RightArrow)) { return true; } 
         else { return false; }
     }
 
     /// <summary> Checks for any Left Input. </summary>
     /// <return> Returns true if there is currently a left input. False if not. </return>
     public bool isleft() {
-        if (Input.GetKey(left) || (Input.GetAxis("Horizontal") < 0f)) { return true; } 
+        if (Input.GetKey(left) || (Input.GetAxis("Horizontal") < 0f) || Input.GetKey(KeyCode.LeftArrow)) { return true; } 
         else { return false; }
     }
 
     /// <summary> Checks for any Back Input. </summary>
     /// <return>  Returns true if there is currently a back input. False if not. </return>
     public bool isBack() {
-        if (Input.GetKey(back) || (Input.GetAxis("Vertical") < 0f)) { return true; } 
+        if (Input.GetKey(back) || (Input.GetAxis("Vertical") < 0f) || Input.GetKey(KeyCode.DownArrow)) { return true; } 
         else { return false; }
     }
 
@@ -80,39 +84,44 @@ public class BoatMovement : MonoBehaviour {
     } 
 
     // Update is called once per frame
-    void Update() {
-        MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
-        ApplyDragToBoat(deacceleration);
-        UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
-        UpdateRotation(rotationLerpSpeed, rotationVal);
+    void FixedUpdate() {
+        if (!cutscene) {
+            MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
+            ApplyDragToBoat(deacceleration);
+            UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
+            UpdateRotation(rotationLerpSpeed, rotationVal);
 
-        water.emissionRate = Mathf.Lerp(water.emissionRate, waterArr[levelSpeed + 1], Time.deltaTime);
-        smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, smokeArr[levelSpeed + 1], Time.deltaTime);
-        ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
-
-
-
+            water.emissionRate = Mathf.Lerp(water.emissionRate, waterArr[levelSpeed + 1], Time.deltaTime);
+            smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, smokeArr[levelSpeed + 1], Time.deltaTime);
+            ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
 
 
 
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            lookUp = true;
+
+
+
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                lookUp = true;
+            } else {
+                lookUp = false;
+            }
+
+            if (lookUp) {
+                cam.playerHeight = Mathf.Lerp(cam.playerHeight, 13, Time.deltaTime);
+                cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, -30, Time.deltaTime);
+                cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, -30, Time.deltaTime);
+            } else {
+                cam.playerHeight = Mathf.Lerp(cam.playerHeight, 7, Time.deltaTime);
+                cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, 10, Time.deltaTime);
+                cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, 10, Time.deltaTime);
+            }
+
+
+            // if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
         } else {
-            lookUp = false;
+            this.transform.position = Vector3.Lerp(transform.position, finalPosition, Time.deltaTime/finalMod);
+            this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(finalRotation), Time.deltaTime/finalMod);
         }
-
-        if (lookUp) {
-            cam.playerHeight = Mathf.Lerp(cam.playerHeight, 13, Time.deltaTime);
-            cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, -30, Time.deltaTime);
-            cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, -30, Time.deltaTime);
-        } else {
-            cam.playerHeight = Mathf.Lerp(cam.playerHeight, 7, Time.deltaTime);
-            cam.yMinLimit = Mathf.Lerp(cam.yMinLimit, 10, Time.deltaTime);
-            cam.yMaxLimit = Mathf.Lerp(cam.yMaxLimit, 10, Time.deltaTime);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene("ArjunScene"); }
     }
 
     /// <summary> Initializes a new Boat Object. This GameObject requires a Character Controller Component. </summary>
@@ -129,9 +138,9 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="speed"> Magnitude in local space should the player move during on frame. </param>
     /// <param name="rotation"> Magnitude in local space should the player move during on frame. </param>
     private void MoveBoat(float speed, float rotation) {
-        Debug.Log("SPEED: " + speed);
-        Debug.Log("MAGNITUDE: " + moveVector.magnitude);
-        Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
+        // Debug.Log("SPEED: " + speed);
+        // Debug.Log("MAGNITUDE: " + moveVector.magnitude);
+        // Debug.Log("MAGNITUDE C: " + currentForce.magnitude);
         moveVector = Vector3.Normalize(new Vector3(transform.forward.x, 0, transform.forward.z));
         moveVector *= (speed * Time.deltaTime);
 
@@ -150,13 +159,35 @@ public class BoatMovement : MonoBehaviour {
         }
     }
 
+    //BIG SAD
     /// <summary> Updates Boat's Current Speed based on Button Inputs. </summary>
     /// <param name="maxSpeed"> Max speed of the Boat. </param>
     /// <param name="acceleration"> Acceleration of the Boat. </param>
     private void UpdateCurrentSpeed(float maxSpeed, float acceleration) {
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)) {
+            isChanging = false;
+        }
+
+
         // Adjust speed
-        if ((Input.GetButtonDown("joystick button 5") || (Input.GetKeyDown(KeyCode.W)) && levelSpeed < 2)) { levelSpeed += 1; } 
-        if ((Input.GetButtonDown("joystick button 4") || (Input.GetKeyDown(KeyCode.S)) && levelSpeed > -1)) { levelSpeed -= 1; }
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && levelSpeed < 2) {
+            if (!isChanging) {
+                // Debug.Log("W");
+                levelSpeed += 1; 
+                isChanging = true;
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && levelSpeed > -1) {
+            if (!isChanging) {
+                // Debug.Log("W");
+                levelSpeed -= 1; 
+                isChanging = true;
+            }
+        }
+
+
+        // if ((Input.GetButtonDown("joystick button 4") || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && levelSpeed > -1) { levelSpeed -= 1; }
 
         boat.SetCurrentSpeed(Mathf.Lerp(boat.GetCurrentSpeed(), speeds[levelSpeed + 1], Time.deltaTime));
         
@@ -168,20 +199,18 @@ public class BoatMovement : MonoBehaviour {
     /// <param name="transitionSpeed"> Transition Speed between player rotation and camera rotation. </param> 
     /// <param name="rotationSpeed"> Transition Speed between player rotation and camera rotation. </param> 
     private void UpdateRotation(float transitionSpeed, float rotationSpeed) {
-        if (Input.GetButton("joystick button 7") || Input.GetKey(KeyCode.D)) {
+        if (Input.GetButton("joystick button 7") || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
             rotationTime = Mathf.Lerp(rotationTime, 1, maxTime);
-        } else if (Input.GetButton("joystick button 6") || Input.GetKey(KeyCode.A)) {
+        } else if (Input.GetButton("joystick button 6") || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             rotationTime = Mathf.Lerp(rotationTime, -1, maxTime);
         }
 
         float rotatationSpeed = boat.GetCurrentSpeed() * rotationTime;   
 
 
-
-
-        if (Input.GetButton("joystick button 7") || Input.GetKey(KeyCode.D)) {
+        if (Input.GetButton("joystick button 7") || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
             boat.SetCurrentRotation(boat.GetCurrentRotation() + (rotationSpeed / rotlimit));
-        } else if (Input.GetButton("joystick button 6") || Input.GetKey(KeyCode.A)) {
+        } else if (Input.GetButton("joystick button 6") || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             boat.SetCurrentRotation(boat.GetCurrentRotation() - (rotationSpeed / rotlimit));
         }
 
