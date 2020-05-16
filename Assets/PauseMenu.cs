@@ -21,6 +21,8 @@ public class PauseMenu : MonoBehaviour {
     // private Vector3 retry;
     // private Vector3 quit;
     // public float speed = 1f;
+    public BoatMovement boatMovement;
+    public int speed = 0;
 
 
 
@@ -46,6 +48,12 @@ public class PauseMenu : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape) && canPause) {
+            if (!pause) {
+                speed = boatMovement.levelSpeed;
+                boatMovement.levelSpeed = 0;
+            } else {
+                boatMovement.levelSpeed = speed;
+            }
             StopAllCoroutines();
             PauseScreen();
             pause = !pause;
@@ -122,6 +130,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Resume() {
+        boatMovement.levelSpeed = speed;
         StopAllCoroutines();
         PauseScreen();
         pause = !pause;
