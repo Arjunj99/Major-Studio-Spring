@@ -14,12 +14,13 @@ public class LanternLighting : MonoBehaviour {
     public float delay;
     public ParticleSystem fire;
     Vector3 pos;
+    public Vector2 randomHeight = new Vector2(10, 20);
 
     // public Color color;
 
     // Start is called before the first frame update
     void Start() {
-        yAxis = transform.position.y + Random.Range(10, 20);
+        yAxis = transform.position.y + Random.Range(randomHeight.x, randomHeight.y);
         rend = GetComponent<Renderer>();
         rend.materials[1] = off;
         pos = new Vector3(transform.position.x, yAxis, transform.position.z);

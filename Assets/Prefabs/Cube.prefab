@@ -56,9 +56,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalLanterns: 0
   lanternList: []
-  lanternText: {fileID: 5661951051540953743}
+  lanternText: {fileID: 0}
   bridge: {fileID: 3135442656409126058}
   endPos: {x: 0, y: -34, z: 0}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!1 &7222526752360333479
 GameObject:
   m_ObjectHideFlags: 0
