@@ -20508,12 +20508,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!82 &1071603849 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 991737775804559873, guid: 4f739fd70740d8247bd79876fd41b661,
-    type: 3}
-  m_PrefabInstance: {fileID: 8344697237991503043}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081584261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 726c2a26d4b224436a0dbb74bf0a4ee8,
@@ -42263,7 +42257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2064704483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44527,7 +44521,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 1071603849}
+      objectReference: {fileID: 841345320}
     - target: {fileID: 6403023575787459247, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
       propertyPath: m_RenderingLayerMask
@@ -44684,7 +44678,7 @@ PrefabInstance:
         type: 3}
       propertyPath: honkNoise
       value: 
-      objectReference: {fileID: 8300000, guid: 94329f6cf68e447c88ee0a377dac8bcf, type: 3}
+      objectReference: {fileID: 8300000, guid: 2de812a30dd1e7846aaaf42b63aa9079, type: 3}
     - target: {fileID: 6524617738933891793, guid: 0c968164f8a684eca94c75fea39cbaaa,
         type: 3}
       propertyPath: m_SlopeLimit
@@ -45519,7 +45513,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 991737775804559873, guid: 4f739fd70740d8247bd79876fd41b661, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4f739fd70740d8247bd79876fd41b661, type: 3}
 --- !u!4 &8467691242797265125 stripped
 Transform:
