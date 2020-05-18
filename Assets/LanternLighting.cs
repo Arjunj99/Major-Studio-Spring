@@ -12,7 +12,7 @@ public class LanternLighting : MonoBehaviour {
     public float speed;
     public float amp;
     public float delay;
-    public ParticleSystem fire;
+    // public ParticleSystem fire;
     Vector3 pos;
     public Vector2 randomHeight = new Vector2(10, 20);
 
@@ -25,7 +25,7 @@ public class LanternLighting : MonoBehaviour {
         rend.materials[1] = off;
         pos = new Vector3(transform.position.x, yAxis, transform.position.z);
         delay = Random.Range(-Mathf.PI,Mathf.PI);
-        fire.emissionRate = 0;
+        // fire.emissionRate = 0;
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class LanternLighting : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             turnedOn = true;
-            fire.emissionRate = 5;
+            //fire.emissionRate = 5;
         }
     }
 }
