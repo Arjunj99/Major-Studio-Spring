@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class LanternManager : MonoBehaviour {
-    [HideInInspector] public int totalLanterns;
+    public int totalLanterns;
     public List<Lantern> lanternList = new List<Lantern>();
     public TMP_Text lanternTextPro;
     public TextMesh lanternTextMesh; 
@@ -24,8 +24,8 @@ public class LanternManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         toPrint = totalLanterns;
-        if (toPrint < 0) { 
-            lanternTextMesh.text = "";
+        if (toPrint <= 0) { 
+            lanternTextMesh.text = " ";
             lanternTextPro.text = "0";
         } else {
             lanternTextMesh.text = totalLanterns.ToString();

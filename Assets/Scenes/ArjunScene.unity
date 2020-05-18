@@ -2178,14 +2178,14 @@ RectTransform:
   m_GameObject: {fileID: 160340098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.60123, y: 0.8396779, z: 0.60123}
   m_Children: []
   m_Father: {fileID: 2064704486}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.29997, y: 165}
+  m_AnchoredPosition: {x: 269, y: 165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160340100
@@ -2206,7 +2206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c1174b655ecb74435ab3c506eaa49623, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1066a8a7e36954cbe9283fe7608a27a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8956,7 +8956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 353.5, y: 173.2}
+  m_AnchoredPosition: {x: 342.4, y: 173.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &531286329
@@ -11352,16 +11352,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577807881586347367, guid: 8ad31b51ab173134b88dccdd6a308da8,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577807881586347367, guid: 8ad31b51ab173134b88dccdd6a308da8,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2575538025816850292, guid: 8ad31b51ab173134b88dccdd6a308da8,
         type: 3}
@@ -22975,7 +22965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256992411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.069, y: 0.536, z: -0.173}
+  m_LocalPosition: {x: -0.069, y: 0.536, z: -0.257}
   m_LocalScale: {x: 1.1510605, y: 0.11039, z: 0.052215}
   m_Children: []
   m_Father: {fileID: 481937897}
@@ -23265,7 +23255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266334535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0691, y: 0.536, z: 0.18}
+  m_LocalPosition: {x: -0.069, y: 0.536, z: 0.259}
   m_LocalScale: {x: 1.1510605, y: 0.11039, z: 0.052215}
   m_Children: []
   m_Father: {fileID: 481937897}
@@ -34975,7 +34965,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -34983,10 +34973,19 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.005
       value: 1
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.47751838
+      value: 0.28398967
+      inSlope: -1.0050253
+      outSlope: -1.0050253
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -34994,12 +34993,12 @@ AudioSource:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.0050251
+      outSlope: -1.0050251
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -35175,7 +35174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595852496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.519, y: 0, z: 0.18}
+  m_LocalPosition: {x: -0.519, y: 0, z: 0.259}
   m_LocalScale: {x: 0.25123, y: 1, z: 0.052215}
   m_Children: []
   m_Father: {fileID: 481937897}
@@ -42156,7 +42155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017377501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.519, y: 0, z: -0.173}
+  m_LocalPosition: {x: -0.519, y: 0, z: -0.257}
   m_LocalScale: {x: 0.25123, y: 1, z: 0.052215}
   m_Children: []
   m_Father: {fileID: 481937897}
@@ -43236,6 +43235,7 @@ MonoBehaviour:
   - Mickey Torres
   - Adam Goren
   - Music by Elisabeth Yuhas
+  - Thank You
   text: {fileID: 1956753571}
   tweenType: 7
   foreGround: {fileID: 1632230340}
@@ -45226,7 +45226,12 @@ PrefabInstance:
     - target: {fileID: 2337315314267418545, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0673
+      value: -0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337315314267418545, guid: be71cbf0ee25948b8a7d4f9509592f80,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.063
       objectReference: {fileID: 0}
     - target: {fileID: 2380211693539218740, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
@@ -45443,6 +45448,26 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 841345320}
+    - target: {fileID: 5661951051540953743, guid: be71cbf0ee25948b8a7d4f9509592f80,
+        type: 3}
+      propertyPath: m_Anchor
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661951051540953743, guid: be71cbf0ee25948b8a7d4f9509592f80,
+        type: 3}
+      propertyPath: m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661951051540953743, guid: be71cbf0ee25948b8a7d4f9509592f80,
+        type: 3}
+      propertyPath: m_Text
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661951051540953743, guid: be71cbf0ee25948b8a7d4f9509592f80,
+        type: 3}
+      propertyPath: m_RichText
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6403023575787459247, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
       propertyPath: m_RenderingLayerMask
@@ -45451,7 +45476,7 @@ PrefabInstance:
     - target: {fileID: 6403023575787459247, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6843484760123082969, guid: be71cbf0ee25948b8a7d4f9509592f80,
         type: 3}
@@ -45490,6 +45515,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 71f3c1271aee7e94385bb7398c15ca40, type: 2}
+    - target: {fileID: 3060513250816261077, guid: 0c968164f8a684eca94c75fea39cbaaa,
+        type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060513250816261077, guid: 0c968164f8a684eca94c75fea39cbaaa,
+        type: 3}
+      propertyPath: x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060513250816261077, guid: 0c968164f8a684eca94c75fea39cbaaa,
+        type: 3}
+      propertyPath: isShip
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3828720147186274549, guid: 0c968164f8a684eca94c75fea39cbaaa,
         type: 3}
       propertyPath: multi

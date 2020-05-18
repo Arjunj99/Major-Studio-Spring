@@ -57,6 +57,7 @@ public class PauseMenu : MonoBehaviour {
             StopAllCoroutines();
             PauseScreen();
             pause = !pause;
+            boatMovement.isPaused = pause;
         }
     }
 

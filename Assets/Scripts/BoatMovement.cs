@@ -47,6 +47,7 @@ public class BoatMovement : MonoBehaviour {
     public bool isChanging;
     public AudioSource audioSource;
     public AudioClip honkNoise;
+    public bool isPaused = false;
 
 
 
@@ -97,8 +98,16 @@ public class BoatMovement : MonoBehaviour {
         if (!cutscene) {
             MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
             ApplyDragToBoat(deacceleration);
-            UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
-            UpdateRotation(rotationLerpSpeed, rotationVal);
+            
+            if (!isPaused) {            
+                UpdateCurrentSpeed(this.maxSpeed, this.acceleration);
+                UpdateRotation(rotationLerpSpeed, rotationVal);
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+                    lookUp = true;
+                } else {
+                    lookUp = false;
+                }
+            }
 
             water.emissionRate = Mathf.Lerp(water.emissionRate, waterArr[levelSpeed + 1], Time.deltaTime);
             smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, smokeArr[levelSpeed + 1], Time.deltaTime);
@@ -107,11 +116,7 @@ public class BoatMovement : MonoBehaviour {
 
 
 
-            if (Input.GetKey(KeyCode.LeftShift)) {
-                lookUp = true;
-            } else {
-                lookUp = false;
-            }
+
 
             if (lookUp) {
                 cam.playerHeight = Mathf.Lerp(cam.playerHeight, 13, Time.deltaTime);
