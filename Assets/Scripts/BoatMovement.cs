@@ -45,6 +45,8 @@ public class BoatMovement : MonoBehaviour {
     public Vector3 finalRotation;
     public float finalMod = 6f;
     public bool isChanging;
+    public AudioSource audioSource;
+    public AudioClip honkNoise;
 
 
 
@@ -84,6 +86,13 @@ public class BoatMovement : MonoBehaviour {
     } 
 
     // Update is called once per frame
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            audioSource.PlayOneShot(honkNoise);
+        }
+    }
+
     void FixedUpdate() {
         if (!cutscene) {
             MoveBoat(boat.GetCurrentSpeed(), boat.GetCurrentRotation()); // Applies Velocity and Rotation to this GameObject
@@ -94,8 +103,6 @@ public class BoatMovement : MonoBehaviour {
             water.emissionRate = Mathf.Lerp(water.emissionRate, waterArr[levelSpeed + 1], Time.deltaTime);
             smoke.emissionRate = Mathf.Lerp(smoke.emissionRate, smokeArr[levelSpeed + 1], Time.deltaTime);
             ember.emissionRate = Mathf.Lerp(ember.emissionRate, emberArr[levelSpeed + 1], Time.deltaTime);
-
-
 
 
 
