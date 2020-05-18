@@ -30,7 +30,7 @@ public class FinalLanternSpawner : MonoBehaviour {
         int num = (thethas.y - thethas.x);
         for (int i = thethas.x; i < num; i++) {
             GameObject current = Instantiate(lanternPrefab, PointOnCircleWorldSpace(i * Mathf.Deg2Rad, Random.Range(radius.x, radius.y)), Quaternion.identity);
-            current.GetComponent<LanternLighting>().yAxis = Random.Range(50, 180);
+            current.GetComponent<LanternLighting>().randomHeight = new Vector2(50, 180);
             lanterns.Add(current.GetComponent<LanternLighting>());
         }
 

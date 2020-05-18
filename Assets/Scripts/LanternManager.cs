@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LanternManager : MonoBehaviour {
     [HideInInspector] public int totalLanterns;
     public List<Lantern> lanternList = new List<Lantern>();
-    public TextMesh lanternText; 
+    public TMP_Text lanternTextPro;
+    public TextMesh lanternTextMesh; 
     private bool hasLowered = false;
     public GameObject bridge;
     public Vector3 endPos;
+    int toPrint;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,11 +23,18 @@ public class LanternManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        lanternText.text = totalLanterns.ToString();
+        toPrint = totalLanterns;
+        if (toPrint < 0) { 
+            lanternTextMesh.text = "";
+            lanternTextPro.text = "0";
+        } else {
+            lanternTextMesh.text = totalLanterns.ToString();
+            lanternTextPro.text = totalLanterns.ToString();
+        }
 
         if (totalLanterns <= 0 && !hasLowered) {
             hasLowered = true;
-            lanternText.text = "";
+            audioSource.PlayOneShot(audioClip);
             StartCoroutine(lowerBridgeAnimation());
         }
     }
